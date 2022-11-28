@@ -1,0 +1,63 @@
+
+<div class="add">
+    <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name">
+         </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email">
+        </div>
+    
+        <label for="gender" class="form-label">Gender</label><br>
+        <mat-radio-group aria-label="Select an option" name="gender">
+          <mat-radio-button value="f">Female</mat-radio-button>
+          <mat-radio-button value="m">Male</mat-radio-button>
+        </mat-radio-group><br><br>
+
+          <label for="qualification">Qualification</label>
+          <br><br>
+           <select id="qualification" name="qualification" class="form-control">
+         <option value="bebtech">BE/B TECH</option>
+         <option value="mtech" >M TECH</option>
+         <option value="mca">MCA</option>
+         <option value="bsc">Bsc Computer Science</option>
+         </select><br>
+
+          <div class="mb-3">
+            <label for="dob" class="form-label">Date of Birth</label><br>
+            <input type="date" id="dob" class="form-control"name="dob" [(ngModel)]="dob">
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label><br>
+            <textarea id="address" class="form-control"name="address" [(ngModel)]="address"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label><br>
+            <input type="text"id="phone" class="form-control"name="phone" [(ngModel)]="phone">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label><br>
+            <input type="password" id="password" class="form-control"name="password" [(ngModel)]="password">
+          </div>
+
+          <label for="role">Role</label>
+          <br><br>
+         <select id="role" name="role" class="form-control" disabled>
+         <option value="student" selected>student</option>
+         <option value="trainer" >Trainer</option>
+         </select><br>
+
+          <label for="course">Course</label>
+          <br><br>
+           <select  id="course" name="course" >
+         <option *ngFor="let id of cid" value="id">{{id}}</option>       
+         </select><br>
+        
+        <button type="submit" style="margin: 15px;" class="btn btn-success" (click)="updatestudent()">Update</button>
+        <button type="submit" style="margin: 15px;" class="btn btn-danger" (click)="canceledit()">Cancel</button>
+    </form>
+    </div>
+
+

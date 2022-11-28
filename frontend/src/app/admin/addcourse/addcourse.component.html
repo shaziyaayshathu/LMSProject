@@ -1,0 +1,21 @@
+<div class="add">
+    <form>
+        <div class="mb-3">
+          <label for="course" class="form-label">Course</label>
+          <input type="text" class="form-control" id="course" name="course" [(ngModel)]="course">
+         </div>
+        <div class="mb-3">
+          <label for="courseID" class="form-label">courseID</label>
+          <input type="text" class="form-control" id="courseID" name="courseID" [(ngModel)]="courseID">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label><br>
+            <textarea id="description" class="form-control"name="description" [(ngModel)]="description"> </textarea>
+            <!-- <input type="text" class="form-control" id="description" name="description"> -->
+          </div>
+          
+        
+        <button type="submit" class="btn btn-primary" (click)="addcourse()">Add</button>
+      </form>
+    </div>
+

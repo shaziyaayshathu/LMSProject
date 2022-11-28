@@ -1,0 +1,38 @@
+#name{
+    width: 30%;
+  }
+  table{
+    color: white;
+    width: 97%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    height: 100%;
+    position: relative;
+    z-index: 9999;
+  }
+  #id{
+    width:30%;
+  }
+  #des{
+    width:40%;
+    text-align: justify;
+  }
+  
+  th{
+   padding: 20px;
+   color: black;
+  }
+  td{
+    padding: 15px;
+    color: black;
+  }
+  tr:hover{
+    background-color: #dde3f1;
+  }
+  .addbtn{
+    float: right;
+    margin: 20px;
+  }

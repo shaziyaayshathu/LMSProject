@@ -1,0 +1,26 @@
+<button class="btn btn-primary addbtn"  (click)="addstudent()">Add Student</button>
+
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Course</th>
+      <th>Qualification</th>
+      <th>Date of Birth</th>
+      <th>Phone</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let student of students">
+      <td id="name">{{student.name}}</td>
+      <td id="email">{{student.email}}</td>
+      <td id="course">{{student.courseid}}</td>
+      <td id="qualification">{{student.qualification}}</td>
+      <td id="dob">{{student.dob}}</td>
+      <td id="phone">{{student.phone}}</td>
+      <td><a class="btn btn-success"  (click)="editStud(student)" >Edit</a></td>
+      <td><button class="btn btn-danger" (click)="deleteStud(student)">Delete</button></td>
+    </tr>
+</table>
+
+

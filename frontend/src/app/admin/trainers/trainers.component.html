@@ -1,0 +1,27 @@
+<button class="btn btn-primary addbtn"  (click)="addtrainer()">Add Trainer</button>
+
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Course</th>
+      <th>Qualification</th>
+      <th>Date of Birth</th>
+      <th>Phone</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let trainer of trainers">
+      <td id="name">{{trainer.name}}</td>
+      <td id="email">{{trainer.email}}</td>
+      <td id="course">{{trainer.courseid}}</td>
+      <td id="qualification">{{trainer.qualification}}</td>
+      <td id="dob">{{trainer.dob}}</td>
+      <td id="phone">{{trainer.phone}}</td>
+      <td><a class="btn btn-success"  (click)="edittrainer(trainer)" >Edit</a></td>
+      <td><button class="btn btn-danger" (click)="deletetrainer(trainer)">Delete</button></td>
+    </tr>
+</table>
+
+
+

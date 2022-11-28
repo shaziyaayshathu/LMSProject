@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+.col{
+    border: 1px solid lightgray;
+    text-align: center;
+    padding: 23px;
+    background-color: linen;
+
+}
+.container{
+    height: calc(100vh - 115px);    /* justify-content: center !important; */
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    
+    overflow:auto;
+}
+
+.row{
+    
+    position: relative;
+    top: 15vh;
+
+}

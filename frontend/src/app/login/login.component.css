@@ -1,0 +1,21 @@
+.gradient-custom {
+
+    background: linear-gradient(to right, rgb(208, 205, 210), rgb(86, 87, 88));
+    height: 100vh;
+    
+    }
+
+.text-danger{
+    /* color: #CF0A0A; */
+    font-size: smaller;
+}    
+
+input{
+    
+    font-weight: lighter;
+}
+
+small{
+    color: #CF0A0A;
+    font-size: smaller;
+}

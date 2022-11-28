@@ -1,0 +1,17 @@
+.card{
+    width:95%;
+    height: 230px;
+    margin-top: 100px;
+}
+.card-title{
+    padding: 10px;
+    padding-top: 10px;
+    font-size: x-large;
+}
+.card-text{
+    padding:10px;
+    font-size: xx-large;
+}
+.btn{
+    margin-top: 10px;
+}
