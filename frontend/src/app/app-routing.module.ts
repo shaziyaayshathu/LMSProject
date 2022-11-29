@@ -23,6 +23,7 @@ import { MycourseComponent } from './Student/mycourse/mycourse.component';
 import { StudentProfileComponent } from './Student/student-profile/student-profile.component';
 
 const routes: Routes = [
+  {path:'login', component:LoginComponent},
   {path:'', component:LoginComponent},
   {path:'student-home', component:HomeComponent,
      children:[

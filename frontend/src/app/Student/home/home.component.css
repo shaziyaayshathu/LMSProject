@@ -1,6 +1,6 @@
 
 .toolbar{
-    height: 80px;
+    /* height: 80px; */
     background-color:  #0f172a;
 }
 
@@ -25,7 +25,13 @@ mat-sidenav-content{
 
 mat-toolbar mat-icon{
     margin-left: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.logout-icon:hover{
     color: gray;
+    cursor: pointer;
 }
 mat-toolbar{
     justify-content: space-between;
