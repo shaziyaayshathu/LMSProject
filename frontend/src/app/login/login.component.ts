@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   login_navigate(){
+    console.log(this.email)
     if(this.email == 'admin'){
       this.router.navigateByUrl('admin')
     }
