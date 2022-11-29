@@ -32,7 +32,7 @@ const routes: Routes = [
         {path:'grades',component:GradesComponent},
         {path:'exams',component:ExamsComponent},
         {path:'student-profile',component:StudentProfileComponent},
-        {path:'student-exampage',component:StudentExampagesComponent}
+        // {path:'student-exampage',component:StudentExampagesComponent}
         
      ]
   },
