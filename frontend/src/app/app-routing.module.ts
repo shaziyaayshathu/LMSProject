@@ -32,25 +32,25 @@ const routes: Routes = [
         {path:'grades',component:GradesComponent},
         {path:'exams',component:ExamsComponent},
         {path:'student-profile',component:StudentProfileComponent},
-        // {path:'student-exampage',component:StudentExampagesComponent}
+        {path:'student-exampage',component:StudentExampagesComponent}
         
      ]
   },
-  // {path:'student-exampage',component:StudentExampagesComponent}
   {path:'admin',component:AdminhomeComponent,
-  children:[{path:'home',component:MainComponent},
-  {path:'courses',component:CourselistComponent},
-  {path:'students',component:StudentsComponent},
-  {path:'trainers',component:TrainersComponent},
-  {path:'addcourse',component:AddcourseComponent},
-  {path:'addstudent',component:AddstudentComponent},
-  {path:'addtrainer',component:AddtrainerComponent},
-  {path:'editcourse',component:EditcourseComponent},
-  {path:'editstudent',component:EditstudentComponent},
-  {path:'edittrainer',component:EdittrainerComponent},
-  {path:'admin-profile',component:ProfileComponent,
-  children:[{path:'changepass',component:ChangepassComponent}]},
-]}
+  children:[{path:'',component:MainComponent},
+      {path:'home',component:MainComponent},
+      {path:'courses',component:CourselistComponent},
+      {path:'students',component:StudentsComponent},
+      {path:'trainers',component:TrainersComponent},
+      {path:'addcourse',component:AddcourseComponent},
+      {path:'addstudent',component:AddstudentComponent},
+      {path:'addtrainer',component:AddtrainerComponent},
+      {path:'editcourse',component:EditcourseComponent},
+      {path:'editstudent',component:EditstudentComponent},
+      {path:'edittrainer',component:EdittrainerComponent},
+      {path:'admin-profile',component:ProfileComponent,
+          children:[{path:'changepass',component:ChangepassComponent}]},
+  ]}
 ];
 
 @NgModule({

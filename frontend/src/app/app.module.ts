@@ -93,7 +93,8 @@ import { ChangepassComponent } from './admin/changepass/changepass.component';
     MatExpansionModule,
     MatFormFieldModule,
     RouterModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule
    
   ],
   providers: [],

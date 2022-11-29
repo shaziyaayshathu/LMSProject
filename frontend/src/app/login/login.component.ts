@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  email:any
+
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+  login_navigate(){
+    if(this.email == 'admin'){
+      this.router.navigateByUrl('admin')
+    }
+    else if(this.email == 'student'){
+      this.router.navigateByUrl('student-home')
+    }
   }
 
 }

@@ -15,7 +15,7 @@ export class ExamsComponent implements OnInit {
 
   exam(){
       console.log('A')
-      this.router.navigateByUrl('student-exampage')
+      this.router.navigateByUrl('/student-home/student-exampage')
       console.log('B')
   }
 }

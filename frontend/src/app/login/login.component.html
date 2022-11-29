@@ -12,7 +12,7 @@
   
                 <div class="form-outline form-white mb-4 text-start">
                     <label class="form-label" for="typeEmailX">Email</label>
-                  <input type="text" class="form-control form-control-lg bg-dark text-white"/>
+                  <input type="text" class="form-control form-control-lg bg-dark text-white" name="email" [(ngModel)]="email"/>
                 </div>
   
                 <div class="form-outline form-white mb-4 text-start">
@@ -23,7 +23,7 @@
                 <div class="text-end">
                     <p class="small mb-5 pb-lg-2"><a class="text-white-50 text-decoration-none" href="#!">Forgot password?</a></p>
                 </div>
-                <button class="btn btn-outline-light btn-lg px-5" type="submit" routerLink="/student-home">Login</button>
+                <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="login_navigate()">Login</button>
   
               </div>
   
