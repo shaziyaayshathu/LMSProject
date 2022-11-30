@@ -33,6 +33,35 @@ router.get('/courses',async (req,res)=>{
     })
 })
 
+router.get('/editcourse/:id',(req,res)=>{
+    courseModel.findOne({"_id":req.params.id},(error,dbdata)=>{
+        if(error){
+            res.json(error)
+        }
+        else{
+           res.json(dbdata)
+        }
+    })
+})
+
+
+router.put('/updatecourse/:id',async (req,res)=>{
+    let data=req.body
+    await courseModel.findOneAndUpdate({"_id":req.params.id},data)
+    res.send(data)
+ })
+
+
+router.delete('/deletecourse/:id',(req,res)=>{
+    courseModel.remove({"_id":req.params.id},(err,data)=>{
+      if(err){
+        res.send("The error is "+err)
+      }
+      res.json("deleted")
+    })
+  })
+
+
 //student api
 
 router.post('/addstudent',async (req,res)=>{

@@ -46,9 +46,9 @@ const routes: Routes = [
       {path:'addcourse',component:AddcourseComponent},
       {path:'addstudent',component:AddstudentComponent},
       {path:'addtrainer',component:AddtrainerComponent},
-      {path:'editcourse',component:EditcourseComponent},
-      {path:'editstudent',component:EditstudentComponent},
-      {path:'edittrainer',component:EdittrainerComponent},
+      {path:'editcourse/:id',component:EditcourseComponent},
+      {path:'editstudent/:id',component:EditstudentComponent},
+      {path:'edittrainer/:id',component:EdittrainerComponent},
       {path:'admin-profile',component:ProfileComponent,
           children:[{path:'changepass',component:ChangepassComponent}]},
   ]}
