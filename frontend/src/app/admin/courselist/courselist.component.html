@@ -7,6 +7,8 @@
       <th>Course id</th>
       <th></th>
       <th></th>
+      <th></th>
+      <th></th>
     </tr>
     <tr *ngFor="let course of courses">
       <td id="name">{{course.name}}</td>
@@ -14,6 +16,8 @@
       <td id="des">{{course.description}}</td>
       <td><a class="btn btn-primary"  (click)="editCourse(course)" >Edit</a></td>
       <td><button class="btn btn-danger" (click)="deleteCourse(course)">Delete</button></td>
+      <td><button class="btn btn-warning" (click)="students(course)">Students</button></td>
+      <td><button class="btn btn-secondary" (click)="trainers(course)">Trainers</button></td>
     </tr>
 </table>
 

@@ -43,8 +43,8 @@ import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 import { CourselistComponent } from './admin/courselist/courselist.component';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { ChangepassComponent } from './admin/changepass/changepass.component';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -96,7 +96,8 @@ import { ChangepassComponent } from './admin/changepass/changepass.component';
     RouterModule,
     MatRadioModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule
    
   ],
   providers: [],

@@ -11,18 +11,18 @@
         </div>
     
         <label for="gender" class="form-label">Gender</label><br>
-        <mat-radio-group aria-label="Select an option" name="gender">
-          <mat-radio-button value="f">Female</mat-radio-button>
-          <mat-radio-button value="m">Male</mat-radio-button>
+        <mat-radio-group aria-label="Select an option" name="gender" [(ngModel)]="gender">
+          <mat-radio-button value="f" name="gend">Female</mat-radio-button>
+          <mat-radio-button value="m" name="gend">Male</mat-radio-button>
         </mat-radio-group><br><br>
 
           <label for="qualification">Qualification</label>
           <br><br>
-           <select id="qualification" name="qualification" class="form-control">
-         <option value="bebtech">BE/B TECH</option>
-         <option value="mtech" >M TECH</option>
-         <option value="mca">MCA</option>
-         <option value="bsc">Bsc Computer Science</option>
+           <select id="qualification" name="qualification" class="form-control" [(ngModel)]="qualification">
+         <option value="BE/Btech">BE/B TECH</option>
+         <option value="Mtech" >M TECH</option>
+         <option value="MCA">MCA</option>
+         <option value="Bsc cs">Bsc Computer Science</option>
          </select><br>
 
           <div class="mb-3">
@@ -51,7 +51,7 @@
 
           <label for="course">Course</label>
           <br><br>
-           <select  id="courseID" name="courseID" >
+           <select  id="courseID" name="courseID" [(ngModel)]="courseID">
          <option *ngFor="let id of cid" value="id">{{id}}</option>       
          </select><br>
         
