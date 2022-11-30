@@ -13,9 +13,19 @@
 input{
     
     font-weight: lighter;
+    color: white;
 }
 
 small{
     color: #CF0A0A;
     font-size: smaller;
+}
+
+.form-field{
+    /* border: 1px solid green; */
+    width: 100%;
+    /* color: white; */
+}
+.form-control-lg{
+    background-color:#212529 !important;
 }

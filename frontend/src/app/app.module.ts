@@ -16,6 +16,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router, RouterModule } from '@angular/router';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 
@@ -97,7 +99,8 @@ import { HttpClient } from '@angular/common/http';
     MatRadioModule,
     FormsModule,
     MatTooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule
    
   ],
   providers: [],
