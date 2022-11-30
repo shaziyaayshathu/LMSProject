@@ -43,16 +43,16 @@
             <input type="password" id="password" class="form-control"name="password" [(ngModel)]="password">
           </div>
 
-          <label for="role">Role</label>
+          <!-- <label for="role">Role</label>
           <br><br>
          <select id="role" name="role" class="form-control" disabled>
          <option value="student" selected>student</option>
          <option value="trainer" >Trainer</option>
-         </select><br>
+         </select><br> -->
 
-          <label for="course">Course</label>
+          <label for="courseID">CourseID</label>
           <br><br>
-           <select  id="course" name="course" >
+           <select  id="courseID" name="courseID" >
          <option *ngFor="let id of cid" value="id">{{id}}</option>       
          </select><br>
         
