@@ -14,7 +14,7 @@ export class CourselistComponent implements OnInit {
   ngOnInit(): void {
     this.viewcourse();
   }
-  courses:any=[{"name":"fsd","id":"101","description":"full stack MEAN"}]
+  courses:any=[]
   addcourse(){
     this.router.navigateByUrl('/admin/addcourse')
  }
@@ -33,6 +33,7 @@ export class CourselistComponent implements OnInit {
  viewcourse(){
     this.courseservice.getcourses().subscribe((res)=>{
       this.courses=res;
+      console.log(res)
     })
  }
 }

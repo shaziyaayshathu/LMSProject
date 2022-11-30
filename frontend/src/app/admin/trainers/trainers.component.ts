@@ -14,7 +14,7 @@ export class TrainersComponent implements OnInit {
   ngOnInit(): void {
     this.viewtrainer();
   }
-  trainers:any=[{"name":"stud1","email":"s@gmail.com","courseid":"101","qualification":"btech","dob":"06/03/2000","phone":"6777777777"}];
+  trainers:any=[];
   addtrainer(){
     this.router.navigateByUrl('/admin/addtrainer')
   }
@@ -27,6 +27,7 @@ export class TrainersComponent implements OnInit {
   viewtrainer(){
     this.trainerservice.gettrainer().subscribe((res)=>{
       this.trainers=res;
+      console.log(res)
     })
   }
 }

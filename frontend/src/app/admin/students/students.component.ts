@@ -8,7 +8,7 @@ import { StudentserviceService } from 'src/app/adminservices/studentservice.serv
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-  students:any=[{"name":"stud1","email":"s@gmail.com","courseid":"101","qualification":"btech","dob":"06/03/2000","phone":"6777777777"}];
+  students:any=[];
   constructor(private router:Router,private studentservice:StudentserviceService) { }
 
   ngOnInit(): void {
@@ -26,6 +26,7 @@ export class StudentsComponent implements OnInit {
   viewstudent(){
     this.studentservice.getstudent().subscribe((res)=>{
       this.students=res;
+      console.log(res)
     })
   }
 }

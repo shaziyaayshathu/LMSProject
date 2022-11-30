@@ -13,6 +13,5 @@ export class TrainerserviceService {
   }
   gettrainer(){
     return this.http.get<any>(`${this.server}/admin/trainers`)
-    
   }
 }

@@ -14,6 +14,8 @@ app.use(express.urlencoded({extended:true}))
 app.use(logger('dev'))
 const api=require('./routes/api')
 app.use('/api',api)
+const adminapi=require('./routes/adminapi')
+app.use('/admin',adminapi)
 
 
 
