@@ -16,6 +16,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router, RouterModule } from '@angular/router';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 
@@ -96,7 +98,8 @@ import { ChangepassComponent } from './admin/changepass/changepass.component';
     RouterModule,
     MatRadioModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatInputModule
    
   ],
   providers: [],
