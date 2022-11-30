@@ -14,4 +14,13 @@ export class TrainerserviceService {
   gettrainer(){
     return this.http.get<any>(`${this.server}/admin/trainers`)
   }
+  edittrainer(id:any){
+    return this.http.get<any>(`${this.server}/admin/edittrainer/`+id)
+   }
+   deletetrainers(id:any){
+     return this.http.delete<any>(`${this.server}/admin/deletetrainer/`+id)
+   }
+   updatetrainer(id:any,data:any){
+      return this.http.put<any>(`${this.server}/admin/updatetrainer/`+id,data)
+   }
 }

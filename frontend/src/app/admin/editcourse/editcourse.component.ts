@@ -13,10 +13,7 @@ export class EditcourseComponent implements OnInit {
   constructor(private router:Router,
     private courseservice:CourseserviceService,
     private url:ActivatedRoute) { }
-    // courseName:any;
-    // courseID:any;
-    // description:any;
-    // id:any;
+   
 
     courseName:any;
     courseID:any;
@@ -24,14 +21,7 @@ export class EditcourseComponent implements OnInit {
     id:any;
 
   ngOnInit(): void {
-    //  this.id=this.url.snapshot.params['id'];
-    //  console.log(this.id)
-    //  this.courseservice.editcourse(this.id).subscribe((res:any)=>{
-    //   console.log(res)
-    //   this.courseID=res.courseID,     
-    //   this.description=res.description,
-    //   this.courseName=res.courseName
-    //  })
+    
 
        this.id=this.url.snapshot.params['id'];
   console.log(this.id)

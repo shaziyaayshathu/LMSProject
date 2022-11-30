@@ -88,6 +88,36 @@ router.get('/students',async (req,res)=>{
     })
 })
 
+router.get('/editstudent/:id',(req,res)=>{
+    studentModel.findOne({"_id":req.params.id},(error,dbdata)=>{
+        if(error){
+            res.json(error)
+        }
+        else{
+           res.json(dbdata)
+        }
+    })
+})
+
+
+router.put('/updatestudent/:id',async (req,res)=>{
+    let data=req.body
+    await studentModel.findOneAndUpdate({"_id":req.params.id},data)
+    res.send(data)
+ })
+
+
+ router.delete('/deletestudent/:id',(req,res)=>{
+    studentModel.remove({"_id":req.params.id},(err,data)=>{
+      if(err){
+        res.send("The error is "+err)
+      }
+      res.json("deleted")
+    })
+  })
+
+
+
 //trainer api
 
 router.post('/addtrainer',async (req,res)=>{
@@ -113,3 +143,31 @@ router.get('/trainers',async (req,res)=>{
         }
     })
 })
+
+
+router.get('/edittrainer/:id',(req,res)=>{
+    trainerModel.findOne({"_id":req.params.id},(error,dbdata)=>{
+        if(error){
+            res.json(error)
+        }
+        else{
+           res.json(dbdata)
+        }
+    })
+})
+
+
+router.put('/updatetrainer/:id',async (req,res)=>{
+    let data=req.body
+    await trainerModel.findOneAndUpdate({"_id":req.params.id},data)
+    res.send(data)
+ })
+
+ router.delete('/deletetrainer/:id',(req,res)=>{
+    trainerModel.remove({"_id":req.params.id},(err,data)=>{
+      if(err){
+        res.send("The error is "+err)
+      }
+      res.json("deleted")
+    })
+  })
