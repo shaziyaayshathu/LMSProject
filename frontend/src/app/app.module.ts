@@ -47,6 +47,11 @@ import { ProfileComponent } from './admin/profile/profile.component';
 import { ChangepassComponent } from './admin/changepass/changepass.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { MaterialsUploadComponent } from './trainer/materials-upload/materials-upload.component';
+import { SetUpExamsComponent } from './trainer/set-up-exams/set-up-exams.component';
+import { ViewFeedbackComponent } from './trainer/view-feedback/view-feedback.component';
+import { EvaluateSubmissionComponent } from './trainer/evaluate-submission/evaluate-submission.component';
+import { TrainerNavComponent } from './trainer/trainer-nav/trainer-nav.component';
 
 
 
@@ -79,6 +84,11 @@ import { HttpClient } from '@angular/common/http';
     CourselistComponent,
     ProfileComponent,
     ChangepassComponent,
+    MaterialsUploadComponent,
+    SetUpExamsComponent,
+    ViewFeedbackComponent,
+    EvaluateSubmissionComponent,
+    TrainerNavComponent,
     
   ],
   imports: [
