@@ -8,7 +8,7 @@ const studentSchema=mongoose.Schema({
           type:  String,
         required:true},
        dob:{
-            type:Date},
+            type:String},
       address:{
             type:  String,
           required:true},

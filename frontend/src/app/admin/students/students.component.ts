@@ -18,10 +18,13 @@ export class StudentsComponent implements OnInit {
     this.router.navigateByUrl('/admin/addstudent')
   }
   editStud(data:any){
-    this.router.navigateByUrl('/admin/editstudent')
+    this.router.navigateByUrl('/admin/editstudent/'+data._id)
   }
   deleteStud(data:any){
-    
+    this.studentservice.deletestudents(data._id).subscribe((res)=>{
+      alert("deleted successfully")
+      this.students=this.students.filter((u:any)=>u!==data)
+    })
   }
   viewstudent(){
     this.studentservice.getstudent().subscribe((res)=>{

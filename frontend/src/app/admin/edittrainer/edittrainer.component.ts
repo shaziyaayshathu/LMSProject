@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TrainerserviceService } from 'src/app/adminservices/trainerservice.service';
 
 @Component({
   selector: 'app-edittrainer',
@@ -8,9 +9,27 @@ import { Router } from '@angular/router';
 })
 export class EdittrainerComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    private trainerservice:TrainerserviceService,
+    private url:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id=this.url.snapshot.params['id'];
+  console.log(this.id)
+  
+  this.trainerservice.edittrainer(this.id).subscribe((res:any)=>{
+    console.log(res)
+    this.name=res.name;
+    this.email=res.email;
+    this.address=res.address;
+    this.dob=res.dob;
+    this.qualification=res.qualification;
+    this.phone=res.phone;
+    this.courseID=res.courseID;
+    this.password=res.password;
+    this.role=res.role;
+    this.gender=res.gender
+  })
   }
   name:any;
   email:any;
@@ -18,14 +37,24 @@ export class EdittrainerComponent implements OnInit {
   dob:any;
   address:any;
   phone:any;
-  course:any;
+  courseID:any;
   password:any;
-  role:any;
+  role:any="trainer";
+  gender:any;
   cid=[101,102,789,906];
+  id:any;
   updatetrainer(){
+    let data={"_id":this.id,"name":this.name,"courseID":this.courseID,
+  "email":this.email,"qualification":this.qualification,"dob":this.dob,
+  "address":this.address,"phone":this.phone,"password":this.password,
+  "role":this.role,"gender":this.gender}
+   this.trainerservice.updatetrainer(this.id,data).subscribe((res)=>{
+    console.log(res)
+   })
     this.router.navigateByUrl('/admin/trainers')
   }
   canceledit(){
     this.router.navigateByUrl('/admin/trainers')
   }
+  
 }
