@@ -15,6 +15,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router, RouterModule } from '@angular/router';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -94,7 +95,8 @@ import { ChangepassComponent } from './admin/changepass/changepass.component';
     MatFormFieldModule,
     RouterModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    MatTooltipModule
    
   ],
   providers: [],

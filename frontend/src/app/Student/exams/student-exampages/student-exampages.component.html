@@ -1,16 +1,21 @@
 <div class="container ">
     <div class="row d-flex justify-content-center align-items-center">
-        <div class="col col-lg-8 col-md-10 col-10">
+        <div class="col col-lg-6 col-md-10 col-10">
             <div class="exam-container">
                 <form >
-                    <ul>
-                        <li>
-                            Qstn 1 <ul>
-                                <li>A</li>
-                                <li>B</li>
-                            </ul>
+                    <ul ><h3>Exam Name</h3>
+                        <li *ngFor="let qstn of exams, let i = index" >
+                            <p class="qstn">{{i+1}}.&nbsp; {{qstn.question}}</p> <ul class="ansr">
+                                <li><input type="radio" name={{i}} id="">&nbsp; {{qstn.options.A}}</li>
+                                <li><input type="radio" name={{i}} id="">&nbsp; {{qstn.options.B}}</li>
+                                <li><input type="radio" name={{i}} id="">&nbsp; {{qstn.options.C}}</li>
+                                <li><input type="radio" name={{i}} id="">&nbsp; {{qstn.options.D}}</li>
+                            </ul><hr>
                         </li>
                     </ul>
+                    <div class="button">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -1,0 +1,30 @@
+ul{
+    list-style: none;
+    
+}
+li{
+    margin-bottom: 10px;
+}
+
+.container{
+    
+    padding-bottom: 50px;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.col{
+    border: 1px solid gainsboro;
+    word-wrap:break-word;
+    background-color: white;
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+.button{
+    margin-left: 42%;
+
+}
+
+.qstn{
+    margin-top: 25px;
+}

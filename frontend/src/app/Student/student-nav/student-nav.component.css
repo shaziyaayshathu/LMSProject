@@ -27,9 +27,10 @@
 
 mat-icon{
     /* border: 1px solid green; */
-    color: gray;
+    color: whitesmoke;
     /* font-family: 'Material-icon'; */
     vertical-align: middle;
+    font-size:x-large;
     /* font-weight: 100 !important; */
 }
 .user{

@@ -12,4 +12,56 @@ export class StudentExampagesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  exams = [
+    {
+      question : "Sample question ?",
+      options:
+        {A : "Option A",
+         B : "Option B",
+         C : "Option C",
+         D : "Option D"
+        }
+      
+    },
+    {
+      question : "Sample question?",
+      options:
+        {A : "Option A",
+         B : "Option B",
+         C : "Option C",
+         D : "Option D"
+        }
+      
+    },
+    {
+      question : "Sample question 3?",
+      options:
+        {A : "Option A",
+         B : "Option B",
+         C : "Option C",
+         D : "Option D"
+        }
+      
+    },
+    {
+      question : "Sample question 4?",
+      options:
+        {A : "Option A",
+         B : "Option B",
+         C : "Option C",
+         D : "Option D"
+        }
+      
+    },
+    {
+      question : "Sample question 5?",
+      options:
+        {A : "Option A",
+         B : "Option B",
+         C : "Option C",
+         D : "Option D"
+        }
+      
+    }
+  ]
 }
