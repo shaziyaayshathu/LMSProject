@@ -21,6 +21,7 @@ export class AddstudentComponent implements OnInit {
   role:any="student";
   gender:any;
   cid=[101,102,789,906];
+  quals=["BE/B TECH","M TECH","MCA","Msc computerScience"]
   addstudent(){
 
     let data={"name":this.name,"email":this.email,"courseID":this.courseID,"qualification":this.qualification,

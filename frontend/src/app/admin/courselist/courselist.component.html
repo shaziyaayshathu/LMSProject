@@ -1,23 +1,31 @@
-<button class="btn btn-primary addbtn"  (click)="addcourse()">Add course</button>
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+    <button class="btn btn-primary addbtn"  (click)="addcourse()">Add course</button>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
 <table>
     <tr>
-      <th>Course</th>
-      <th>Description</th>
-      <th>Course id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th id="course">Course</th>
+      <th id="des">Description</th>
+      <th id="id">Course id</th>
+      <th class="buttn"></th>
+      <th class="buttn"></th>
+      <th class="buttn"></th>
+      <th class="buttn"></th>
     </tr>
     <tr *ngFor="let course of courses">
-      <td id="name">{{course.courseName}}</td>
-      <td id="id">{{course.description}}</td>
-      <td id="des">{{course.courseID}}</td>
+      <td >{{course.courseName}}</td>
+      <td >{{course.description}}</td>
+      <td >{{course.courseID}}</td>
       <td><a class="btn btn-primary"  (click)="editCourse(course)" >Edit</a></td>
       <td><button class="btn btn-danger" (click)="deleteCourse(course)">Delete</button></td>
       <td><button class="btn btn-warning" (click)="students(course)">Students</button></td>
       <td><button class="btn btn-secondary" (click)="trainers(course)">Trainers</button></td>
     </tr>
 </table>
-
+</div>
+</div>
+</div>

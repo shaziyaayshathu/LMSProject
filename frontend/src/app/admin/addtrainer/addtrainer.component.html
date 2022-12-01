@@ -18,11 +18,9 @@
 
           <label for="qualification">Qualification</label>
           <br><br>
-           <select id="qualification" name="qualification" class="form-control" [(ngModel)]="qualification">
-         <option value="BE/Btech">BE/B TECH</option>
-         <option value="Mtech" >M TECH</option>
-         <option value="MCA">MCA</option>
-         <option value="Bsc cs">Bsc Computer Science</option>
+           <select id="qualification"  name="qualification"  [(ngModel)]="qualification">
+         <option *ngFor="let qual of quals">{{qual}}</option>
+         
          </select><br>
 
           <div class="mb-3">
@@ -42,12 +40,7 @@
             <input type="password" id="password" class="form-control"name="password" [(ngModel)]="password">
           </div>
 
-          <!-- <label for="role">Role</label>
-          <br><br>
-         <select id="role" name="role" class="form-control" disabled>
-         <option value="student" >student</option>
-         <option value="trainer" selected>Trainer</option>
-         </select><br> -->
+         
 
           <label for="course">Course</label>
           <br><br>

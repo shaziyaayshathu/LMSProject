@@ -24,6 +24,7 @@ export class AddtrainerComponent implements OnInit {
   role:any="trainer";
   gender:any;
   cid=[101,102,789,906];
+  quals=["BE/B TECH","M TECH","MCA","Msc computerScience"]
   addtrainer(){
 
     let data={"name":this.name,"email":this.email,"courseID":this.courseID,"qualification":this.qualification,
