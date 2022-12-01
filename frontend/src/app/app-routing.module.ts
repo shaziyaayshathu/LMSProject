@@ -21,6 +21,14 @@ import { GradesComponent } from './Student/grades/grades.component';
 import { HomeComponent } from './Student/home/home.component';
 import { MycourseComponent } from './Student/mycourse/mycourse.component';
 import { StudentProfileComponent } from './Student/student-profile/student-profile.component';
+import { EvaluateSubmissionComponent } from './trainer/evaluate-submission/evaluate-submission.component';
+import { MaterialsUploadComponent } from './trainer/materials-upload/materials-upload.component';
+import { SetUpExamsComponent } from './trainer/set-up-exams/set-up-exams.component';
+import { TrainerHomeComponent } from './trainer/trainer-home/trainer-home.component';
+import { TrainerMainComponent } from './trainer/trainer-main/trainer-main.component';
+import { ViewFeedbackComponent } from './trainer/view-feedback/view-feedback.component';
+import { ViewSubmissionsComponent } from './trainer/view-submissions/view-submissions.component';
+import { ViewUploadsComponent } from './trainer/view-uploads/view-uploads.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
@@ -51,6 +59,18 @@ const routes: Routes = [
       {path:'edittrainer/:id',component:EdittrainerComponent},
       {path:'admin-profile',component:ProfileComponent,
           children:[{path:'changepass',component:ChangepassComponent}]},
+  ]},
+
+  {path:'trainer-home',component:TrainerHomeComponent,
+  children:[{path:'',component:TrainerMainComponent},
+      {path:'hometrainer',component:TrainerMainComponent},
+      {path:'trainer-uploads',component:ViewUploadsComponent},
+      {path:'exams-setup',component:SetUpExamsComponent},
+      {path:'upload-materials',component:MaterialsUploadComponent},
+      {path:'view-submissions',component:ViewSubmissionsComponent},
+      {path:'student-feedback',component:ViewFeedbackComponent},
+      {path:'evaluate-submission',component:EvaluateSubmissionComponent}
+      
   ]}
 ];
 
