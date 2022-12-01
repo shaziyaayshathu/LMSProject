@@ -52,6 +52,10 @@ import { SetUpExamsComponent } from './trainer/set-up-exams/set-up-exams.compone
 import { ViewFeedbackComponent } from './trainer/view-feedback/view-feedback.component';
 import { EvaluateSubmissionComponent } from './trainer/evaluate-submission/evaluate-submission.component';
 import { TrainerNavComponent } from './trainer/trainer-nav/trainer-nav.component';
+import { TrainerHomeComponent } from './trainer/trainer-home/trainer-home.component';
+import { TrainerMainComponent } from './trainer/trainer-main/trainer-main.component';
+import { ViewUploadsComponent } from './trainer/view-uploads/view-uploads.component';
+import { ViewSubmissionsComponent } from './trainer/view-submissions/view-submissions.component';
 
 
 
@@ -89,6 +93,10 @@ import { TrainerNavComponent } from './trainer/trainer-nav/trainer-nav.component
     ViewFeedbackComponent,
     EvaluateSubmissionComponent,
     TrainerNavComponent,
+    TrainerHomeComponent,
+    TrainerMainComponent,
+    ViewUploadsComponent,
+    ViewSubmissionsComponent,
     
   ],
   imports: [

@@ -19,10 +19,13 @@ export class CourselistComponent implements OnInit {
     this.router.navigateByUrl('/admin/addcourse')
  }
  editCourse(data:any){
-  this.router.navigateByUrl('/admin/editcourse')
+  this.router.navigateByUrl('/admin/editcourse/'+data._id)
  }
  deleteCourse(data:any){
-
+  this.courseservice.deletecourses(data._id).subscribe((res)=>{
+    alert("deleted successfully")
+    this.courses=this.courses.filter((u:any)=>u!==data)
+  })
  }
  students(data:any){
 

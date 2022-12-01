@@ -19,10 +19,13 @@ export class TrainersComponent implements OnInit {
     this.router.navigateByUrl('/admin/addtrainer')
   }
   edittrainer(data:any){
-    this.router.navigateByUrl('/admin/edittrainer')
+    this.router.navigateByUrl('/admin/edittrainer/'+data._id)
   }
   deletetrainer(data:any){
-  
+    this.trainerservice.deletetrainers(data._id).subscribe((res)=>{
+      alert("deleted successfully")
+      this.trainers=this.trainers.filter((u:any)=>u!==data)
+    })
   }
   viewtrainer(){
     this.trainerservice.gettrainer().subscribe((res)=>{

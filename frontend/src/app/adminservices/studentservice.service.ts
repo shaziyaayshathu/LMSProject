@@ -12,7 +12,15 @@ export class StudentserviceService {
     return this.http.post<any>(`${this.server}/admin/addstudent`,data)
   }
   getstudent(){
-    return this.http.get<any>(`${this.server}/admin/students`)
-    
+    return this.http.get<any>(`${this.server}/admin/students`)  
   }
+  editstudent(id:any){
+    return this.http.get<any>(`${this.server}/admin/editstudent/`+id)
+   }
+   deletestudents(id:any){
+     return this.http.delete<any>(`${this.server}/admin/deletestudent/`+id)
+   }
+   updatestudent(id:any,data:any){
+      return this.http.put<any>(`${this.server}/admin/updatestudent/`+id,data)
+   }
 }

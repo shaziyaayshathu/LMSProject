@@ -14,4 +14,13 @@ export class CourseserviceService {
   addcourse(data:any){
     return this.http.post<any>(`${this.server}/admin/addcourse`,data)
   }
+  editcourse(id:any){
+   return this.http.get<any>(`${this.server}/admin/editcourse/`+id)
+  }
+  deletecourses(id:any){
+    return this.http.delete<any>(`${this.server}/admin/deletecourse/`+id)
+  }
+  updatecourse(id:any,data:any){
+     return this.http.put<any>(`${this.server}/admin/updatecourse/`+id,data)
+  }
 }
