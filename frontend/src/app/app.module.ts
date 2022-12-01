@@ -17,7 +17,7 @@ import { Router, RouterModule } from '@angular/router';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
-
+import {  ReactiveFormsModule } from '@angular/forms';  
 
 
 
@@ -118,7 +118,8 @@ import { ViewSubmissionsComponent } from './trainer/view-submissions/view-submis
     FormsModule,
     MatTooltipModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
    
   ],
   providers: [],

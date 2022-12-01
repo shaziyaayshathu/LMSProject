@@ -17,6 +17,9 @@ app.use('/api',api)
 const adminapi=require('./routes/adminapi')
 app.use('/admin',adminapi)
 
+const trainerapi=require('./routes/trainerapi')
+app.use('/trainer',trainerapi)
+
 
 
 app.listen(PORT,()=>{
