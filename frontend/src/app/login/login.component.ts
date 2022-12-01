@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     else if(this.data.Email == 'student'){
       this.router.navigateByUrl('student-home')
     }
-    else if(this.email == 'trainer'){
+    else if(this.data.Email == 'trainer'){
       this.router.navigateByUrl('trainer-home')
     }
   }
