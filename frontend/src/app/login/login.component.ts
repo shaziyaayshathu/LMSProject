@@ -8,18 +8,24 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  email:any
+  data={
+    Email:'',
+    Password:''
+  }
+  
 
   constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
+  
   login_navigate(){
-    console.log(this.email)
-    if(this.email == 'admin'){
+    console.log(this.data.Email)
+    console.log(this.data.Password)
+    if(this.data.Email == 'admin'){
       this.router.navigateByUrl('admin')
     }
-    else if(this.email == 'student'){
+    else if(this.data.Email == 'student'){
       this.router.navigateByUrl('student-home')
     }
   }
