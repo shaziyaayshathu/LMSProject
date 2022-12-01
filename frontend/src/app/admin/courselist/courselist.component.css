@@ -1,12 +1,21 @@
-#name{
-    width: 30%;
+#course{
+    width: 28%;
+  }
+  #des{
+    width:50%;
+  }
+  #id{
+    width:10%;
+  }
+  .buttn{
+    width:4%;
   }
   table{
     color: white;
-    width: 97%;
+    width: 100%;
     margin-top: 30px;
     margin-bottom: 30px;
-    padding: 30px;
+    padding: 10px;
     background-color: white;
     border-radius: 20px;
     height: 100%;
@@ -28,11 +37,12 @@
   td{
     padding: 15px;
     color: black;
+    text-align: justify;
   }
   tr:hover{
-    background-color: #dde3f1;
+    background-color: #e4e4e4;
   }
   .addbtn{
-    float: right;
     margin: 20px;
+    width: 15%;
   }
