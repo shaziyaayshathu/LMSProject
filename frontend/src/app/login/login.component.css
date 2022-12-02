@@ -16,9 +16,10 @@ input{
     color: white;
 }
 
-small{
+span{
     color: #CF0A0A;
     font-size: smaller;
+    letter-spacing: 1px;
 }
 
 .form-field{

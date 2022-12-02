@@ -19,7 +19,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 
 
-
+ 
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -56,6 +56,7 @@ import { TrainerHomeComponent } from './trainer/trainer-home/trainer-home.compon
 import { TrainerMainComponent } from './trainer/trainer-main/trainer-main.component';
 import { ViewUploadsComponent } from './trainer/view-uploads/view-uploads.component';
 import { ViewSubmissionsComponent } from './trainer/view-submissions/view-submissions.component';
+import { LoginService } from './loginservice/login.service';
 
 
 
@@ -118,10 +119,11 @@ import { ViewSubmissionsComponent } from './trainer/view-submissions/view-submis
     FormsModule,
     MatTooltipModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
+    
    
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent], 
 })
 

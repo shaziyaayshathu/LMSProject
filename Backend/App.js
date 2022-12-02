@@ -19,6 +19,9 @@ app.use('/api',api)
 const adminapi=require('./routes/adminapi')
 app.use('/admin',adminapi)
 
+const loginApi = require('./routes/loginApi')
+app.use('/login', loginApi)
+
 
 
 app.listen(PORT,()=>{

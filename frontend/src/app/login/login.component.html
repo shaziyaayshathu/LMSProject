@@ -7,7 +7,7 @@
               
               <div class="mb-md-3 mt-md-4 pb-5">
 
-              <form #form="ngForm" (ngSubmit)="form.valid && login_navigate()">
+              <form #form="ngForm" (ngSubmit)="form.valid && login_navigate(data)">
                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                 <p class="text-white-50 mb-5">Please enter your email and password!</p>
 
@@ -21,8 +21,9 @@
               <div class="form-outline form-white mb-4 text-start">
                   <label class="form-label" for="typePasswordX">Password</label>
                 <input type="password" class="form-control form-control-lg bg-dark text-white" name="Password" #Password="ngModel" [(ngModel)]="data.Password" required/>
-                <label class="text-danger" *ngIf="form.submitted && Password.errors?.['required']">Password Required</label>
-                <!-- <span class="text-danger">{{msg}}</span> -->
+                <label class="text-danger" *ngIf="form.submitted && Password.errors?.['required']">Password Required</label><br>
+                <span class="text-danger" *ngIf="form.submitted">{{loginStatus}}</span>
+                <span class="text-danger"></span>
               </div>
                 
                 <div class="text-end">
