@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     // }
     this.login_service.login(data).subscribe((res)=>{
       let userData:any = res
-      console.log('data from backend',userData)
+      // console.log('data from backend',userData)
       if(userData.status == '0'){
         this.loginStatus = "Account doesn't exist";
       }else if(userData.status == '-1'){
