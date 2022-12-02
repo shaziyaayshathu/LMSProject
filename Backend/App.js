@@ -17,10 +17,13 @@ const api=require('./routes/api')
 app.use('/api',api)
 
 const adminapi=require('./routes/adminapi')
-app.use('/admin',adminapi)
+app.use('/admin',adminapi) 
 
 const loginApi = require('./routes/loginApi')
 app.use('/login', loginApi)
+
+const trainerapi=require('./routes/trainerapi')
+app.use('/trainer',trainerapi)
 
 
 

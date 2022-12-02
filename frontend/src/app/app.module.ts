@@ -17,7 +17,7 @@ import { Router, RouterModule } from '@angular/router';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
-
+import {  ReactiveFormsModule } from '@angular/forms';  
 
  
 
@@ -120,6 +120,7 @@ import { LoginService } from './loginservice/login.service';
     MatTooltipModule,
     HttpClientModule,
     MatInputModule,
+    ReactiveFormsModule,
     
    
   ],
