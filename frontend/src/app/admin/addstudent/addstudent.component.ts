@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CountserviceService } from 'src/app/adminservices/countservice.service';
+import { CourseserviceService } from 'src/app/adminservices/courseservice.service';
 import { StudentserviceService } from 'src/app/adminservices/studentservice.service';
 
 @Component({
@@ -9,7 +11,10 @@ import { StudentserviceService } from 'src/app/adminservices/studentservice.serv
 })
 export class AddstudentComponent implements OnInit {
 
-  constructor(private router:Router,private studentservice:StudentserviceService) { }
+  constructor(private router:Router,
+    private studentservice:StudentserviceService
+    ,private courseservice:CourseserviceService,
+    private countservice:CountserviceService) { }
   name:any;
   email:any;
   qualification:any;
@@ -20,8 +25,8 @@ export class AddstudentComponent implements OnInit {
   password:any;
   role:any="student";
   gender:any;
-  cid=[101,102,789,906];
   quals=["BE/B TECH","M TECH","MCA","Msc computerScience"]
+  courses:any=[]
   addstudent(){
 
     let data={"name":this.name,"email":this.email,"courseID":this.courseID,"qualification":this.qualification,
@@ -33,7 +38,13 @@ export class AddstudentComponent implements OnInit {
       this.router.navigateByUrl('/admin/students')
     })
   }
+  getcourseids(){
+   this.courseservice.getcourses().subscribe((res:any)=>{
+    this.courses=res;
+   })
+  }
   ngOnInit(): void {
+    this.getcourseids()
   }
 
 }

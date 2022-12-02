@@ -56,6 +56,8 @@ import { TrainerHomeComponent } from './trainer/trainer-home/trainer-home.compon
 import { TrainerMainComponent } from './trainer/trainer-main/trainer-main.component';
 import { ViewUploadsComponent } from './trainer/view-uploads/view-uploads.component';
 import { ViewSubmissionsComponent } from './trainer/view-submissions/view-submissions.component';
+import { ShowstudentsComponent } from './admin/showstudents/showstudents.component';
+import { ShowtrainersComponent } from './admin/showtrainers/showtrainers.component';
 
 
 
@@ -97,6 +99,8 @@ import { ViewSubmissionsComponent } from './trainer/view-submissions/view-submis
     TrainerMainComponent,
     ViewUploadsComponent,
     ViewSubmissionsComponent,
+    ShowstudentsComponent,
+    ShowtrainersComponent,
     
   ],
   imports: [

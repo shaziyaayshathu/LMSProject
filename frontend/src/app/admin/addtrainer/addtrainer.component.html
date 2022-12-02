@@ -45,7 +45,7 @@
           <label for="course">Course</label>
           <br><br>
            <select  id="courseID" name="courseID" [(ngModel)]="courseID">
-         <option *ngFor="let id of cid" >{{id}}</option>       
+         <option *ngFor="let course of courses" >{{course.courseID}}</option>       
          </select><br>
         
         <button type="submit" style="margin-top: 15px;" class="btn btn-primary" (click)="addtrainer()">Add</button>

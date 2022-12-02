@@ -1,5 +1,5 @@
 #name{
-    width: 25%;
+    width: 50%;
   }
   table{
     color: rgb(63, 60, 60);
@@ -14,10 +14,10 @@
     z-index: 9999;
   }
   #email{
-    width:35%;
+    width:50%;
   }
   #course{
-    width:20%;
+    width:9%;
   }
   #qualification{
     width: 15%;

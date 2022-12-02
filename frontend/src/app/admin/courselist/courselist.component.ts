@@ -28,10 +28,10 @@ export class CourselistComponent implements OnInit {
   })
  }
  students(data:any){
-
+   this.router.navigateByUrl('/admin/showstudents/'+data.courseID)
  }
  trainers(data:any){
-
+  this.router.navigateByUrl('/admin/showtrainers/'+data.courseID)
  }
  viewcourse(){
     this.courseservice.getcourses().subscribe((res)=>{
