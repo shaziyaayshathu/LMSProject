@@ -17,9 +17,9 @@ import { Router, RouterModule } from '@angular/router';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
-import {  ReactiveFormsModule } from '@angular/forms';  
-
- 
+import { ReactiveFormsModule } from '@angular/forms';  
+import {FileUploadModule} from 'ng2-file-upload';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -97,7 +97,7 @@ import { LoginService } from './loginservice/login.service';
     TrainerHomeComponent,
     TrainerMainComponent,
     ViewUploadsComponent,
-    ViewSubmissionsComponent,
+    ViewSubmissionsComponent
     
   ],
   imports: [
@@ -121,6 +121,7 @@ import { LoginService } from './loginservice/login.service';
     HttpClientModule,
     MatInputModule,
     ReactiveFormsModule,
+   
     
    
   ],

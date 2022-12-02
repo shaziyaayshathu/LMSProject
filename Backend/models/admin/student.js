@@ -39,6 +39,9 @@ const studentSchema = mongoose.Schema({
   gender: {
     type: String,
     required: true
+  },
+  teacherID:{
+
   }
 
 })

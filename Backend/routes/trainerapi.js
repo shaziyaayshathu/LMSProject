@@ -30,3 +30,33 @@ router.get('/courses',async (req,res)=>{
         }
     })
 })
+pdfRoute.post("/createPdf", async (req, res) =>  {
+    try {
+      const newPDF = new pdfModel(req.body);
+      await newPDF.save();
+      await classModel.updateOne(
+        { _id: newPDF.class },
+        { $push: { pdfs: newPDF._id } }
+      );
+      await chapterModel.updateOne(
+        { _id: newPDF.chapter },
+        { $push: { pdfs: newPDF._id } }
+      );
+      await partModel.updateOne(
+        { _id: newPDF.part },
+        { $push: { pdfs: newPDF._id } }
+      );
+      await courseModel.updateOne(
+        { _id: newPDF.course },
+        { $push: { pdfs: newPDF._id } }
+      );
+      res.status(200).json({
+        msg: "Successfully Created A PDF",
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({
+        msg: "Server Error",
+      });
+    }
+  })
