@@ -4,28 +4,28 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Course</th>
-      <th>Qualification</th>
+      <th>Course ID</th>
+      <!-- <th>Qualification</th>
       <th>Date of Birth</th>
       <th>Phone</th>
       <th>adress</th>
       <th>password</th>
-      <th>role</th>
+      <th>role</th> -->
       <th></th>
       <th></th>
     </tr>
     <tr *ngFor="let student of students">
-      <td id="name">{{student.name}}</td>
-      <td id="email">{{student.email}}</td>
-      <td id="course">{{student.courseID}}</td>
-      <td id="qualification">{{student.qualification}}</td>
-      <td id="dob">{{student.dob}}</td>
-      <td id="phone">{{student.phone}}</td>
-      <td>{{student.address}}</td>
-      <td>{{student.password}}</td>
-      <td>{{student.role}}</td>
-      <td><a class="btn btn-success"  (click)="editStud(student)" >Edit</a></td>
-      <td><button class="btn btn-danger" (click)="deleteStud(student)">Delete</button></td>
+      <td *ngIf="student.role=='student'"  id="name">{{student.name}}</td>
+      <td *ngIf="student.role=='student'" id="email">{{student.email}}</td>
+      <td *ngIf="student.role=='student'" id="course">{{student.courseID}}</td>
+      <!-- <td *ngIf="student.role=='student'" id="qualification">{{student.qualification}}</td>
+      <td *ngIf="student.role=='student'" id="dob">{{student.dob}}</td>
+      <td *ngIf="student.role=='student'" id="phone">{{student.phone}}</td>
+      <td *ngIf="student.role=='student'">{{student.address}}</td>
+      <td *ngIf="student.role=='student'">{{student.password}}</td>
+      <td *ngIf="student.role=='student'">{{student.role}}</td> -->
+      <td *ngIf="student.role=='student'"><a class="btn btn-success"  (click)="editStud(student)" >Edit</a></td>
+      <td *ngIf="student.role=='student'"><button class="btn btn-danger" (click)="deleteStud(student)">Delete</button></td>
     </tr>
 </table>
 

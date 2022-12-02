@@ -1,6 +1,6 @@
 <mat-sidenav-container >
 
-    <mat-sidenav #sidebar mode="side"  >
+    <mat-sidenav #sidebar mode="side"  opened>
        <app-navbar></app-navbar>
     </mat-sidenav>
 
@@ -9,6 +9,7 @@
           <div class="toolbar">
            <mat-toolbar>
                <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+               
                <div class="box">
                 <mat-icon>logout</mat-icon>
                </div>

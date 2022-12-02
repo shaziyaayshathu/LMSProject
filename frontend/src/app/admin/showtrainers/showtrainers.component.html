@@ -1,0 +1,31 @@
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <!-- <th>Course</th>
+      <th>Qualification</th>
+      <th>Date of Birth</th>
+      <th>Phone</th>
+      <th>adress</th>
+      <th>password</th>
+      <th>role</th> -->
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let trainer of trainers">
+      <td *ngIf="trainer.role=='trainer' && trainer.courseID==this.courseID"  id="name">{{trainer.name}}</td>
+      <td *ngIf="trainer.role=='trainer' && trainer.courseID==this.courseID" id="email">{{trainer.email}}</td>
+      <!-- <td *ngIf="trainer.role=='trainer' && trainer.courseID==this.courseID" id="course">{{trainer.courseID}}</td>
+      <td *ngIf="trainer.role=='trainer' && trainer.courseID==this.courseID" id="qualification">{{trainer.qualification}}</td>
+      <td *ngIf="trainer.role=='trainer' && trainer.courseID==this.courseID" id="dob">{{trainer.dob}}</td>
+      <td *ngIf="trainer.role=='trainer' && trainer.courseID==this.courseID" id="phone">{{trainer.phone}}</td>
+      <td *ngIf="trainer.role=='trainer' && trainer.courseID==this.courseID">{{trainer.address}}</td>
+      <td *ngIf="trainer.role=='trainer' && trainer.courseID==this.courseID">{{trainer.password}}</td>
+      <td *ngIf="trainer.role=='trainer' && trainer.courseID==this.courseID">{{trainer.role}}</td> -->
+    </tr>
+</table>
+
+
+
+
+

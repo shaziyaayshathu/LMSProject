@@ -2,13 +2,14 @@
     width: 28%;
   }
   #des{
-    width:50%;
+    width:70%;
+    text-align: justify;
   }
   #id{
-    width:10%;
+    width:15%;
   }
   .buttn{
-    width:4%;
+    width:2%;
   }
   table{
     color: white;
@@ -22,13 +23,7 @@
     position: relative;
     z-index: 9999;
   }
-  #id{
-    width:30%;
-  }
-  #des{
-    width:40%;
-    text-align: justify;
-  }
+  
   
   th{
    padding: 20px;

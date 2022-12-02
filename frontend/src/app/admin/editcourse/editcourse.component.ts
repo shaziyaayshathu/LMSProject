@@ -14,7 +14,7 @@ export class EditcourseComponent implements OnInit {
     private courseservice:CourseserviceService,
     private url:ActivatedRoute) { }
    
-
+    image:any;
     courseName:any;
     courseID:any;
     description:any;
@@ -30,12 +30,13 @@ export class EditcourseComponent implements OnInit {
     console.log(res)
     this.courseID=res.courseID;
     this.courseName=res.courseName;
-    this.description=res.description
+    this.description=res.description;
+    this.image=res.image;
   })
   }
   
   updatecourse(){
-   let data={"_id":this.id,"courseName":this.courseName,"courseID":this.courseID,"description":this.description}
+   let data={"_id":this.id,"courseName":this.courseName,"courseID":this.courseID,"description":this.description,"image":this.image}
    this.courseservice.updatecourse(this.id,data).subscribe((res)=>{
     console.log(res)
    })

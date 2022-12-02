@@ -12,6 +12,9 @@ const courseSchema = mongoose.Schema({
   courseID: {
     type: String,
     required: true
+  },
+  image:{
+    type:String
   }
 })
 

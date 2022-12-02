@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CourseserviceService } from 'src/app/adminservices/courseservice.service';
 import { TrainerserviceService } from 'src/app/adminservices/trainerservice.service';
 
 @Component({
@@ -11,8 +12,9 @@ export class EdittrainerComponent implements OnInit {
 
   constructor(private router:Router,
     private trainerservice:TrainerserviceService,
-    private url:ActivatedRoute) { }
-
+    private url:ActivatedRoute,
+    private courseservice:CourseserviceService) { }
+    quals=["BE/B TECH","M TECH","MCA","Msc computerScience"]
   ngOnInit(): void {
     this.id=this.url.snapshot.params['id'];
   console.log(this.id)
@@ -30,6 +32,7 @@ export class EdittrainerComponent implements OnInit {
     this.role=res.role;
     this.gender=res.gender
   })
+  this.getcourseids()
   }
   name:any;
   email:any;
@@ -41,7 +44,7 @@ export class EdittrainerComponent implements OnInit {
   password:any;
   role:any="trainer";
   gender:any;
-  cid=[101,102,789,906];
+  courses:any=[];
   id:any;
   updatetrainer(){
     let data={"_id":this.id,"name":this.name,"courseID":this.courseID,
@@ -56,5 +59,10 @@ export class EdittrainerComponent implements OnInit {
   canceledit(){
     this.router.navigateByUrl('/admin/trainers')
   }
+  getcourseids(){
+    this.courseservice.getcourses().subscribe((res:any)=>{
+     this.courses=res;
+    })
+   }
   
 }

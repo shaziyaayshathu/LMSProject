@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CountserviceService } from 'src/app/adminservices/countservice.service';
+import { CourseserviceService } from 'src/app/adminservices/courseservice.service';
 import { TrainerserviceService } from 'src/app/adminservices/trainerservice.service';
 
 @Component({
@@ -9,9 +11,13 @@ import { TrainerserviceService } from 'src/app/adminservices/trainerservice.serv
 })
 export class AddtrainerComponent implements OnInit {
 
-  constructor(private router:Router,private trainerservice:TrainerserviceService){ }
+  constructor(private router:Router,
+    private trainerservice:TrainerserviceService,
+    private courseservice:CourseserviceService
+    ,private countservice:CountserviceService){ }
 
   ngOnInit(): void {
+    this.getcourseids()
   }
   name:any;
   email:any;
@@ -23,7 +29,7 @@ export class AddtrainerComponent implements OnInit {
   password:any;
   role:any="trainer";
   gender:any;
-  cid=[101,102,789,906];
+  courses:any=[];
   quals=["BE/B TECH","M TECH","MCA","Msc computerScience"]
   addtrainer(){
 
@@ -36,4 +42,11 @@ export class AddtrainerComponent implements OnInit {
       this.router.navigateByUrl('/admin/trainers')
     })
   }
+
+  getcourseids(){
+    this.courseservice.getcourses().subscribe((res:any)=>{
+     this.courses=res;
+     console.log(res)
+    })
+   }
 }

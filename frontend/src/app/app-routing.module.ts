@@ -11,6 +11,8 @@ import { EditstudentComponent } from './admin/editstudent/editstudent.component'
 import { EdittrainerComponent } from './admin/edittrainer/edittrainer.component';
 import { MainComponent } from './admin/main/main.component';
 import { ProfileComponent } from './admin/profile/profile.component';
+import { ShowstudentsComponent } from './admin/showstudents/showstudents.component';
+import { ShowtrainersComponent } from './admin/showtrainers/showtrainers.component';
 import { StudentsComponent } from './admin/students/students.component';
 import { TrainersComponent } from './admin/trainers/trainers.component';
 import { LoginComponent } from './login/login.component';
@@ -57,6 +59,8 @@ const routes: Routes = [
       {path:'editcourse/:id',component:EditcourseComponent},
       {path:'editstudent/:id',component:EditstudentComponent},
       {path:'edittrainer/:id',component:EdittrainerComponent},
+      {path:'showstudents/:courseID',component:ShowstudentsComponent},
+      {path:'showtrainers/:courseID',component:ShowtrainersComponent},
       {path:'admin-profile',component:ProfileComponent,
           children:[{path:'changepass',component:ChangepassComponent}]},
   ]},

@@ -56,7 +56,13 @@ import { TrainerHomeComponent } from './trainer/trainer-home/trainer-home.compon
 import { TrainerMainComponent } from './trainer/trainer-main/trainer-main.component';
 import { ViewUploadsComponent } from './trainer/view-uploads/view-uploads.component';
 import { ViewSubmissionsComponent } from './trainer/view-submissions/view-submissions.component';
+import { ShowstudentsComponent } from './admin/showstudents/showstudents.component';
+import { ShowtrainersComponent } from './admin/showtrainers/showtrainers.component';
 import { LoginService } from './loginservice/login.service';
+import { StudentserviceService } from './adminservices/studentservice.service';
+import { TrainerserviceService } from './adminservices/trainerservice.service';
+import { CourseserviceService } from './adminservices/courseservice.service';
+import { CountserviceService } from './adminservices/countservice.service';
 
 
 
@@ -97,7 +103,7 @@ import { LoginService } from './loginservice/login.service';
     TrainerHomeComponent,
     TrainerMainComponent,
     ViewUploadsComponent,
-    ViewSubmissionsComponent
+    ViewSubmissionsComponent,
     
   ],
   imports: [
@@ -125,7 +131,11 @@ import { LoginService } from './loginservice/login.service';
     
    
   ],
-  providers: [LoginService],
+  providers: [LoginService,
+    StudentserviceService,
+    TrainerserviceService,
+    CourseserviceService,
+    CountserviceService],
   bootstrap: [AppComponent], 
 })
 

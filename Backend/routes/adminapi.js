@@ -3,8 +3,7 @@ const router=express.Router();
 module.exports=router
 
 const courseModel=require('../models/admin/course')
-const studentModel=require('../models/admin/student')
-const trainerModel=require('../models/admin/trainer')
+const userModel=require('../models/admin/user')
 
 //course api
 
@@ -66,7 +65,7 @@ router.delete('/deletecourse/:id',(req,res)=>{
 
 router.post('/addstudent',async (req,res)=>{
     let data=req.body
-    const student=new studentModel(data)
+    const student=new userModel(data)
     await student.save((error,dbdata)=>{
         if(error){
             res.json(error)
@@ -78,7 +77,7 @@ router.post('/addstudent',async (req,res)=>{
 })
 
 router.get('/students',async (req,res)=>{
-    studentModel.find((error,dbdata)=>{
+    userModel.find((error,dbdata)=>{
         if(error){
             res.json(error)
         }
@@ -89,7 +88,7 @@ router.get('/students',async (req,res)=>{
 })
 
 router.get('/editstudent/:id',(req,res)=>{
-    studentModel.findOne({"_id":req.params.id},(error,dbdata)=>{
+    userModel.findOne({"_id":req.params.id},(error,dbdata)=>{
         if(error){
             res.json(error)
         }
@@ -102,13 +101,13 @@ router.get('/editstudent/:id',(req,res)=>{
 
 router.put('/updatestudent/:id',async (req,res)=>{
     let data=req.body
-    await studentModel.findOneAndUpdate({"_id":req.params.id},data)
+    await userModel.findOneAndUpdate({"_id":req.params.id},data)
     res.send(data)
  })
 
 
  router.delete('/deletestudent/:id',(req,res)=>{
-    studentModel.remove({"_id":req.params.id},(err,data)=>{
+    userModel.remove({"_id":req.params.id},(err,data)=>{
       if(err){
         res.send("The error is "+err)
       }
@@ -122,7 +121,7 @@ router.put('/updatestudent/:id',async (req,res)=>{
 
 router.post('/addtrainer',async (req,res)=>{
     let data=req.body
-    const trainer=new trainerModel(data)
+    const trainer=new userModel(data)
     await trainer.save((error,dbdata)=>{
         if(error){
             res.json(error)
@@ -134,7 +133,7 @@ router.post('/addtrainer',async (req,res)=>{
 })
 
 router.get('/trainers',async (req,res)=>{
-    trainerModel.find((error,dbdata)=>{
+    userModel.find((error,dbdata)=>{
         if(error){
             res.json(error)
         }
@@ -146,7 +145,7 @@ router.get('/trainers',async (req,res)=>{
 
 
 router.get('/edittrainer/:id',(req,res)=>{
-    trainerModel.findOne({"_id":req.params.id},(error,dbdata)=>{
+    userModel.findOne({"_id":req.params.id},(error,dbdata)=>{
         if(error){
             res.json(error)
         }
@@ -159,15 +158,49 @@ router.get('/edittrainer/:id',(req,res)=>{
 
 router.put('/updatetrainer/:id',async (req,res)=>{
     let data=req.body
-    await trainerModel.findOneAndUpdate({"_id":req.params.id},data)
+    await userModel.findOneAndUpdate({"_id":req.params.id},data)
     res.send(data)
  })
 
  router.delete('/deletetrainer/:id',(req,res)=>{
-    trainerModel.remove({"_id":req.params.id},(err,data)=>{
+    userModel.remove({"_id":req.params.id},(err,data)=>{
       if(err){
         res.send("The error is "+err)
       }
       res.json("deleted")
     })
   })
+
+  router.get('/countcourse',(req,res)=>{
+    courseModel.countDocuments({},(error,dbdata)=>{
+        if(error){
+            res.json(error)
+        }
+        else{
+           res.json(dbdata)
+        }
+    })
+})
+
+
+router.get('/countstudent',(req,res)=>{
+    userModel.countDocuments({role:"student"},(error,dbdata)=>{
+        if(error){
+            res.json(error)
+        }
+        else{
+           res.json(dbdata)
+        }
+    })
+})
+
+router.get('/counttrainer',(req,res)=>{
+    userModel.countDocuments({role:"trainer"},(error,dbdata)=>{
+        if(error){
+            res.json(error)
+        }
+        else{
+           res.json(dbdata)
+        }
+    })
+})

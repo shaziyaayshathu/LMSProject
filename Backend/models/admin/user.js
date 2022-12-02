@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const trainerSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -10,7 +10,7 @@ const trainerSchema = mongoose.Schema({
     required: true
   },
   dob: {
-    type: String
+    type: Date
   },
   address: {
     type: String,
@@ -39,9 +39,13 @@ const trainerSchema = mongoose.Schema({
   gender: {
     type: String,
     required: true
+  },
+  teacherID:{
+
   }
+
 })
 
-var trainerModel = mongoose.model("trainers", trainerSchema)
+var userModel = mongoose.model("users", userSchema)
 
-module.exports = trainerModel
+module.exports = userModel

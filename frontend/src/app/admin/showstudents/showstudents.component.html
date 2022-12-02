@@ -1,0 +1,30 @@
+
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <!-- <th>Course</th>
+      <th>Qualification</th>
+      <th>Date of Birth</th>
+      <th>Phone</th>
+      <th>adress</th>
+      <th>password</th>
+      <th>role</th> -->
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let student of students">
+      <td *ngIf="student.role=='student' && student.courseID==this.courseID"  id="name">{{student.name}}</td>
+      <td *ngIf="student.role=='student' && student.courseID==this.courseID" id="email">{{student.email}}</td>
+      <!-- <td *ngIf="student.role=='student' && student.courseID==this.courseID" id="course">{{student.courseID}}</td>
+      <td *ngIf="student.role=='student' && student.courseID==this.courseID" id="qualification">{{student.qualification}}</td>
+      <td *ngIf="student.role=='student' && student.courseID==this.courseID" id="dob">{{student.dob}}</td>
+      <td *ngIf="student.role=='student' && student.courseID==this.courseID" id="phone">{{student.phone}}</td>
+      <td *ngIf="student.role=='student' && student.courseID==this.courseID">{{student.address}}</td>
+      <td *ngIf="student.role=='student' && student.courseID==this.courseID">{{student.password}}</td>
+      <td *ngIf="student.role=='student' && student.courseID==this.courseID">{{student.role}}</td> -->
+    </tr>
+</table>
+
+
+
