@@ -10,7 +10,7 @@ router.post('', async(req, res)=>{
     try {
         admin={
             Email: 'admin@gmail.com',
-            Password: 'admin'
+            Password: 'admin' 
         }
         let loginData
         Email = data.Email
@@ -21,7 +21,7 @@ router.post('', async(req, res)=>{
             
             loginData = [{role: 'admin'}]
             res.send(loginData)
-            console.log(loginData)
+            // console.log(loginData)
         }
         else{
             loginData = await studentModel.find({email:Email})

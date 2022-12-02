@@ -19,7 +19,7 @@ app.use('/api',api)
 const adminapi=require('./routes/adminapi')
 app.use('/admin',adminapi) 
 
-const loginApi = require('./routes/loginApi')
+const loginApi = require('./routes/loginApi') //for login
 app.use('/login', loginApi)
 
 const trainerapi=require('./routes/trainerapi')
