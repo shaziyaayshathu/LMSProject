@@ -1,8 +1,8 @@
 const express=require('express')
 const router=express.Router();
 
-const studentModel=require('../models/admin/student')
-const trainerModel=require('../models/admin/trainer')
+
+const userModel=require('../models/admin/user')
 
 router.post('', async(req, res)=>{
   
@@ -16,17 +16,20 @@ router.post('', async(req, res)=>{
         Email = data.Email
         Password = data.Password
         if(JSON.stringify(data) === JSON.stringify(admin)){
-            console.log('admin', admin.value)
-            console.log('data', data.value)
+            console.log('admin', admin)
+            console.log('data', data)
             
             loginData = [{role: 'admin'}]
             res.send(loginData)
             // console.log(loginData)
         }
         else{
-            loginData = await studentModel.find({email:Email})
-            if(loginData == ''){
-                loginData = await trainerModel.find({email:Email}) 
+            console.log(loginData)
+            // loginData = await studentModel.find({email:Email})
+            if(loginData == null){
+                
+                loginData = await userModel.find({email:Email}) 
+                console.log(loginData)
             }
             
             if(loginData == ''){
@@ -36,7 +39,7 @@ router.post('', async(req, res)=>{
                 res.send({'status':'-1'})
                 console.log('invalid credentials') 
             }else{
-                res.status(200).send(loginData)
+                res.status(200).send(loginData) 
             }
         }
     } catch (error) {

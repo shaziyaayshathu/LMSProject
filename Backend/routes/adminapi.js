@@ -74,6 +74,7 @@ router.post('/addstudent',async (req,res)=>{
            res.json(dbdata)
         }
     })
+    
 })
 
 router.get('/students',async (req,res)=>{
