@@ -30,7 +30,7 @@ router.get('/courses',async (req,res)=>{
         }
     })
 })
-pdfRoute.post("/createPdf", async (req, res) =>  {
+router.post("/createPdf", async (req, res) =>  {
     try {
       const newPDF = new pdfModel(req.body);
       await newPDF.save();
