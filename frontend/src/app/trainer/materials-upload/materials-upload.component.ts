@@ -1,65 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { FileSelectDirective, FileUploader} from 'ng2-file-upload';
 import { Observable } from 'rxjs';
-
+import {saveAs} from 'file-saver';
+import { FileUploadModule } from "ng2-file-upload";
 import { TrainerapiService } from '../trainerapi.service';
-
+const uri = 'http://localhost:5200/file/upload';
 @Component({
   selector: 'app-materials-upload',
   templateUrl: './materials-upload.component.html',
   styleUrls: ['./materials-upload.component.css']
 })
-export class MaterialsUploadComponent  implements OnInit {
+export class MaterialsUploadComponent  {
 
-  selectedFiles?: FileList;
-  progressInfos: any[] = [];
-  message: string[] = [];
+  uploader:FileUploader = new FileUploader({url:uri});
 
-  fileInfos?: Observable<any>;
+    attachmentList:any = [];
 
-  constructor(private api: TrainerapiService) { }
+  constructor(private api: TrainerapiService) {  
+    this.uploader.onCompleteItem = (item:any, response:any , status:any, headers:any) => {
+    this.attachmentList.push(JSON.parse(response));
+}
+}
 
+download(index:any){
+var filename = this.attachmentList[index].uploadname;
 
-
-  ngOnInit(): void {
-    this.fileInfos = this.api.getFiles();
-  }
-  selectFiles(event:any): void {
-    this.message = [];
-    this.progressInfos = [];
-    this.selectedFiles = event.target.files;
-  }
-  uploadFiles(): void {
-    this.message = [];
-  
-    if (this.selectedFiles) {
-      for (let i = 0; i < this.selectedFiles.length; i++) {
-        this.upload(i, this.selectedFiles[i]);
-      }
-    }
-  }
-  upload(idx: number, file: File): void {
-    this.progressInfos[idx] = { value: 0, fileName: file.name };
-  
-    if (file) {
-      this.api.upload(file).subscribe({
-        next: (event: any) => {
-          if (event.type === HttpEventType.UploadProgress) {
-            this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
-          } else if (event instanceof HttpResponse) {
-            const msg = 'Uploaded the file successfully: ' + file.name;
-            this.message.push(msg);
-            this.fileInfos = this.api.getFiles();
-          }
-        },
-        error: (err: any) => {
-          this.progressInfos[idx].value = 0;
-          const msg = 'Could not upload the file: ' + file.name;
-          this.message.push(msg);
-          this.fileInfos = this.api.getFiles();
-        }
-      });
-    }
-  }
-
+this.api.downloadFile(filename)
+.subscribe(
+    data => saveAs(data, filename),
+    error => console.error(error)
+);
+}
 }
