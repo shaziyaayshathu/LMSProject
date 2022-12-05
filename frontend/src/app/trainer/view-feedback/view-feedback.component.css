@@ -3,3 +3,56 @@ h1{
     background-color: black;
     text-align: center;
 }
+mat-accordion{
+    display:grid;
+    margin: auto;
+    /* width: 50%; */
+    /* margin-top: 2rem; */
+    margin-bottom: 20px;
+
+   }
+   mat-expansion-panel-header-title {
+    color: black;
+    margin-bottom: 5px;
+    
+   }
+  mat-panel-title h2{
+    font-weight: lighter;
+    font-size: medium;
+    margin-top: 9px;
+  } 
+   .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .submitbutton{
+    margin-bottom: 5px;
+  }
+
+.col{
+  border: 1px solid lightgray;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.header{
+  display: inline;
+}
+.course-name{
+  display: inline;
+  float: right;
+  /* margin-bottom: px !important; */
+}
+.container{
+  height: 100vh;
+  /* overflow: auto; */
+}
+.header-and-name{
+  margin-bottom: 15px;
+}
