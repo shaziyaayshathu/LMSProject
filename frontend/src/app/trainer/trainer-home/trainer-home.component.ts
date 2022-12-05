@@ -18,3 +18,4 @@ export class TrainerHomeComponent implements OnInit {
     this.router.navigateByUrl('/login')
   }
 }
+
