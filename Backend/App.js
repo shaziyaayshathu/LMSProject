@@ -1,6 +1,7 @@
 const express=require('express')
 const cors=require('cors')
 const logger=require('morgan')
+const bodyParser=require('body-parser')
 
 const app=new express()
 
@@ -12,6 +13,7 @@ app.use(cors())          //to connect frontend and backend without any disturban
 app.use(express.json())       //to receive data from front end
 app.use(express.urlencoded({extended:true}))
 app.use(logger('dev'))
+app.use(bodyParser.json())
 
 const api=require('./routes/api')
 app.use('/api',api)

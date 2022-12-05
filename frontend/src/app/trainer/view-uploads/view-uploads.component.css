@@ -1,0 +1,20 @@
+.container {
+    padding: 2rem 0rem;
+    
+  }
+  
+  h4 {
+    margin: 2rem 0rem 1rem;
+  }
+  h1{
+    color:white;
+    background-color: black;
+    text-align: center;
+  }
+  .table{
+    margin: 25px;
+    width:75%;
+    border-style:groove;
+    border-width: 0;
+    
+  }

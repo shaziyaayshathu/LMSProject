@@ -1,1 +1,31 @@
-<p>view-uploads works!</p>
+<div>
+    <h1>Uploaded Files</h1>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">File Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let link of links,let i=index">
+              <th scope="row">{{i+1}}</th>
+              
+              <td scope="row">{{link.filePath.file}}</td>
+              
+              <td>
+                <button type="button" class="btn btn-success" (click)="downloadMaterial(link._id)">Download</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" (click)="deleteMaterial(link._id)">Delete</button>
+              </td>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

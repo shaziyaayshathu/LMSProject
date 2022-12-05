@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { FileSelectDirective, FileUploader} from 'ng2-file-upload';
-import { Observable } from 'rxjs';
-import {saveAs} from 'file-saver';
-import { FileUploadModule } from "ng2-file-upload";
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormControl, Validators,FormBuilder} from '@angular/forms';
 import { TrainerapiService } from '../trainerapi.service';
-const uri = 'http://localhost:5200/file/upload';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-materials-upload',
   templateUrl: './materials-upload.component.html',
@@ -13,23 +11,49 @@ const uri = 'http://localhost:5200/file/upload';
 })
 export class MaterialsUploadComponent  {
 
-  uploader:FileUploader = new FileUploader({url:uri});
+    formdata=new FormData()
+    myForm: FormGroup;
+  //     {
+  //   title: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  //   files: new FormControl('', [Validators.required]),
+   
+  // });
 
-    attachmentList:any = [];
-
-  constructor(private api: TrainerapiService) {  
-    this.uploader.onCompleteItem = (item:any, response:any , status:any, headers:any) => {
-    this.attachmentList.push(JSON.parse(response));
+  constructor(private api:TrainerapiService,private fb: FormBuilder,private router:Router) { 
+    this.myForm = this.fb.group({
+      title: [''],
+      files: ['']
+    });
 }
+
+get f(){
+  return this.myForm.controls;
 }
+   
+onFileChange(event:any) {
 
-download(index:any){
-var filename = this.attachmentList[index].uploadname;
-
-this.api.downloadFile(filename)
-.subscribe(
-    data => saveAs(data, filename),
-    error => console.error(error)
-);
+  if (event.target.files.length > 0) {
+    const files:FileList = event.target .files;
+   // const formdata=new FormData();
+   
+    for(let i=0;i<files.length;i++){
+      const element=files[i]
+      this.formdata.append('files',element)
+    }
+  }
+}
+   
+submit(){
+ 
+  const name=this.myForm.controls['title'].value
+  console.log(name)
+  this.formdata.append('title',this.myForm.controls['title'].value)
+  this.api.upload(this.formdata).subscribe(res => {
+    console.log(res);
+    this.router.navigate(['trainer-home/trainer-uploads'])
+    alert('Uploaded Successfully.');
+  })
+ 
+    
 }
 }

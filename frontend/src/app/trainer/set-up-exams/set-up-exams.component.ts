@@ -18,12 +18,12 @@ export class SetUpExamsComponent  {
      
     this.examForm = this.fb.group({  
       title: '',  
-      questions: this.fb.array([]) ,  
+      qns: this.fb.array([]) ,  
     });  
   }  
     
   quantities() : FormArray {  
-    return this.examForm.get("questions") as FormArray  
+    return this.examForm.get("qns") as FormArray  
   }  
      
   newQuantity(): FormGroup {  
