@@ -45,7 +45,7 @@ import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 import { CourselistComponent } from './admin/courselist/courselist.component';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { ChangepassComponent } from './admin/changepass/changepass.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { MaterialsUploadComponent } from './trainer/materials-upload/materials-upload.component';
 import { SetUpExamsComponent } from './trainer/set-up-exams/set-up-exams.component';
@@ -63,6 +63,8 @@ import { StudentserviceService } from './adminservices/studentservice.service';
 import { TrainerserviceService } from './adminservices/trainerservice.service';
 import { CourseserviceService } from './adminservices/courseservice.service';
 import { CountserviceService } from './adminservices/countservice.service';
+import { TokenInterceptorService } from './token-interceptor.service';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -135,7 +137,13 @@ import { CountserviceService } from './adminservices/countservice.service';
     StudentserviceService,
     TrainerserviceService,
     CourseserviceService,
-    CountserviceService],
+    CountserviceService,
+    AuthGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService,
+      multi:true
+    }],
   bootstrap: [AppComponent], 
 })
 

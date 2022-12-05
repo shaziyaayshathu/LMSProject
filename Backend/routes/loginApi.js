@@ -1,5 +1,6 @@
 const express=require('express')
 const router=express.Router();
+var jwt = require('jsonwebtoken');
 
 
 const userModel=require('../models/admin/user')
@@ -12,18 +13,29 @@ router.post('', async(req, res)=>{
             Email: 'admin@gmail.com',
             Password: 'admin' 
         }
+       
         let loginData
         Email = data.Email
         Password = data.Password
+
+        let payload = {
+            'email': Email,
+            'password': Password
+        }
+
+        
+
         if(JSON.stringify(data) === JSON.stringify(admin)){
             console.log('admin', admin)
             console.log('data', data)
             
             loginData = [{role: 'admin'}]
-            res.send(loginData)
+            let token = jwt.sign(payload,'learning management system')
+            // console.log(token)
+            res.send([loginData,token])
             // console.log(loginData)
         }
-        else{
+        else{ 
             console.log(loginData)
             // loginData = await studentModel.find({email:Email})
             if(loginData == null){
@@ -39,7 +51,9 @@ router.post('', async(req, res)=>{
                 res.send({'status':'-1'})
                 console.log('invalid credentials') 
             }else{
-                res.status(200).send(loginData) 
+                let token = jwt.sign(payload,'learning management system')
+                // console.log(token)
+                res.status(200).send([loginData,token])  
             }
         }
     } catch (error) {

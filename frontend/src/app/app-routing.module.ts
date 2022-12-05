@@ -15,6 +15,7 @@ import { ShowstudentsComponent } from './admin/showstudents/showstudents.compone
 import { ShowtrainersComponent } from './admin/showtrainers/showtrainers.component';
 import { StudentsComponent } from './admin/students/students.component';
 import { TrainersComponent } from './admin/trainers/trainers.component';
+import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { CoursesComponent } from './Student/courses/courses.component';
 import { ExamsComponent } from './Student/exams/exams.component';
@@ -35,7 +36,7 @@ import { ViewUploadsComponent } from './trainer/view-uploads/view-uploads.compon
 const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'', component:LoginComponent},
-  {path:'student-home', component:HomeComponent,
+  {path:'student-home',canActivate:[AuthGuard], component:HomeComponent,
      children:[
         {path:'',component:CoursesComponent},
         {path:'student-viewcourse',component:CoursesComponent},
@@ -47,7 +48,7 @@ const routes: Routes = [
         
      ]
   },
-  {path:'admin',component:AdminhomeComponent,
+  {path:'admin',canActivate:[AuthGuard],component:AdminhomeComponent,
   children:[{path:'',component:MainComponent},
       {path:'home',component:MainComponent},
       {path:'courses',component:CourselistComponent},
@@ -65,7 +66,7 @@ const routes: Routes = [
           children:[{path:'changepass',component:ChangepassComponent}]},
   ]},
 
-  {path:'trainer-home',component:TrainerHomeComponent,
+  {path:'trainer-home',canActivate:[AuthGuard],component:TrainerHomeComponent,
   children:[{path:'',component:TrainerMainComponent},
       {path:'hometrainer',component:TrainerMainComponent},
       {path:'trainer-uploads',component:ViewUploadsComponent},

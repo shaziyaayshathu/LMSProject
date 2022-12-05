@@ -17,11 +17,13 @@ export class LoginComponent implements OnInit {
   loginStatus:any 
 
   constructor(private router:Router, private login_service:LoginService) { }
+  
 
   ngOnInit(): void {
   }
   
   login_navigate(data:any){
+    
     // console.log(this.data.Email)
     // console.log(this.data.Password)
     // if(this.data.Email == 'admin'){
@@ -35,19 +37,22 @@ export class LoginComponent implements OnInit {
     // }
     this.login_service.login(data).subscribe((res)=>{
       let userData:any = res
-      // console.log('data from backend',userData)
+      console.log('data from backend',userData[1])
       if(userData.status == '0'){
         this.loginStatus = "Account doesn't exist";
       }else if(userData.status == '-1'){
         this.loginStatus = "Invalid credentials";
       }else{
-        if(userData[0].role == 'student'){
+
+        localStorage.setItem('token',userData[1])
+
+        if(userData[0][0].role == 'student'){
           this.router.navigateByUrl('student-home')
         }
-        else if(userData[0].role == 'trainer'){
+        else if(userData[0][0].role == 'trainer'){
           this.router.navigateByUrl('trainer-home')
         }
-        else if(userData[0].role == 'admin'){
+        else if(userData[0][0].role == 'admin'){
           this.router.navigateByUrl('admin')
         }
       }

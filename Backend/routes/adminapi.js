@@ -4,6 +4,7 @@ module.exports=router
 
 const courseModel=require('../models/admin/course')
 const userModel=require('../models/admin/user')
+const verifytoken = require('../Middlewares/jwtVerify')
 
 //course api
 
@@ -21,12 +22,13 @@ router.post('/addcourse',async (req,res)=>{
 })
 
 
-router.get('/courses',async (req,res)=>{
+router.get('/courses',verifytoken, async (req,res)=>{
     courseModel.find((error,dbdata)=>{
         if(error){
             res.json(error)
         }
         else{
+            // console.log(req.headers.authorization)
            res.json(dbdata)
         }
     })
@@ -84,6 +86,7 @@ router.get('/students',async (req,res)=>{
         }
         else{
            res.json(dbdata)
+           
         }
     })
 })
