@@ -14,5 +14,11 @@ export class LoginService {
     return this.http.post(`${this.server}/login`,data)
   }
 
+  getToken(){
+    return localStorage.getItem('token');
+  }
+  loggedIn(){
+    return !! localStorage.getItem('token')
+  }
 
 }
