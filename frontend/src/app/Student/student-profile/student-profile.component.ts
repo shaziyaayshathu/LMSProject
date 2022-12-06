@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShareService } from 'src/app/share.service';
 
 @Component({
   selector: 'app-student-profile',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentProfileComponent implements OnInit {
 
-  constructor() { }
+  details:any = []
+
+  constructor(private share:ShareService) { }
 
   ngOnInit(): void {
+
+    this.details = this.share.getDetails()
+    console.log("profile", this.details)
+
   }
 
 }

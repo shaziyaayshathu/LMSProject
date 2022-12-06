@@ -13,8 +13,8 @@ export class NavbarComponent implements OnInit {
   constructor(private share:ShareService) { }
 
   ngOnInit(): void {
-    this.details = this.share.getDetails()
-    console.log('from nav', this.details[0])
+    // this.details = this.share.getDetails()
+    // console.log('from nav', this.details[0])
   }
 
 }

@@ -8,12 +8,13 @@ import { ShareService } from 'src/app/share.service';
 })
 export class StudentNavComponent implements OnInit {
 
-  details:any
+  details:any = []
   constructor(private share:ShareService) { }
 
   ngOnInit(): void {
 
     this.details = this.share.getDetails()
+    this.details = this.details[0]
     // console.log('from nav', this.details[0])
 
   }
