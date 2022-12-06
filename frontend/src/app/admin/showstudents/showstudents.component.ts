@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StudentserviceService } from 'src/app/adminservices/studentservice.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-showstudents',
   templateUrl: './showstudents.component.html',

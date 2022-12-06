@@ -20,7 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';  
 import {FileUploadModule} from 'ng2-file-upload';
 import { FileSelectDirective } from 'ng2-file-upload';
-
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './Student/home/home.component';
@@ -107,6 +107,8 @@ import { ShareService } from './share.service';
     TrainerMainComponent,
     ViewUploadsComponent,
     ViewSubmissionsComponent,
+    ShowstudentsComponent,
+    ShowtrainersComponent
     
   ],
   imports: [
@@ -131,6 +133,7 @@ import { ShareService } from './share.service';
     MatInputModule,
     ReactiveFormsModule,
     
+    CommonModule
     
    
   ],

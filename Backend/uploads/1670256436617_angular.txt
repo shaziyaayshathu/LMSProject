@@ -1,0 +1,35 @@
+<h1>Hello World !</h1>
+<button (click)="alertbox()">Click me</button>
+
+<h2>Deliver to {{customerName}}</h2>
+<h2>Enter your name:</h2>
+<input type="text" [(ngModel)]="name">
+<h2>My name is :{{name}}</h2>
+
+
+
+ alertbox()
+{
+  alert("Hi")
+}
+customerName='Shaziya';
+name=''
+
+
+h1{
+    font-size: 25px;
+}
+button{
+    height: 25px;
+    width: 75px;
+    background-color:black;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+for frontend templates...codepen
+
+for creating components->ng g c components/header

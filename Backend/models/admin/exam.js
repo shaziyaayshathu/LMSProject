@@ -4,15 +4,17 @@ const examSchema=mongoose.Schema({
     title:{
         type:  String,
       required:true},
-      qns:
-      {
+      qns:[{
          question: String, 
-         options: [{option1: String, option2: String, option3: String, option4: String}]
+        
+            option1: String, 
+            option2: String,
+            option3: String, 
+            option4: String
+        
           
-        },
-        ans:{
-            type:String
-        }
+    }]
+        
          
 })
 
