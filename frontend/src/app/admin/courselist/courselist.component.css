@@ -1,4 +1,4 @@
-#course{
+/* #course{
     width: 28%;
   }
   #des{
@@ -10,7 +10,8 @@
   }
   .buttn{
     width:2%;
-  }
+  } */
+
   table{
     color: white;
     width: 100%;
@@ -28,11 +29,13 @@
   th{
    padding: 20px;
    color: black;
+   width: auto;
   }
   td{
     padding: 15px;
     color: black;
     text-align: justify;
+    width: auto;
   }
   tr:hover{
     background-color: #e4e4e4;

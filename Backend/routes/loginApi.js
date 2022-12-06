@@ -36,12 +36,12 @@ router.post('', async(req, res)=>{
             // console.log(loginData)
         }
         else{ 
-            console.log(loginData)
+            console.log("before checking to db",loginData)
             // loginData = await studentModel.find({email:Email})
             if(loginData == null){
                 
-                loginData = await userModel.find({email:Email}) 
-                console.log(loginData)
+                loginData = await userModel.find({email:Email})  
+                console.log("after checking db",loginData)
             }
             
             if(loginData == ''){

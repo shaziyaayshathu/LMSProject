@@ -20,7 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';  
 import {FileUploadModule} from 'ng2-file-upload';
 import { FileSelectDirective } from 'ng2-file-upload';
-
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './Student/home/home.component';
@@ -65,6 +65,7 @@ import { CourseserviceService } from './adminservices/courseservice.service';
 import { CountserviceService } from './adminservices/countservice.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AuthGuard } from './auth.guard';
+import { ShareService } from './share.service';
 
 
 
@@ -106,6 +107,8 @@ import { AuthGuard } from './auth.guard';
     TrainerMainComponent,
     ViewUploadsComponent,
     ViewSubmissionsComponent,
+    ShowstudentsComponent,
+    ShowtrainersComponent
     
   ],
   imports: [
@@ -129,7 +132,8 @@ import { AuthGuard } from './auth.guard';
     HttpClientModule,
     MatInputModule,
     ReactiveFormsModule,
-   
+    
+    CommonModule
     
    
   ],
@@ -139,6 +143,7 @@ import { AuthGuard } from './auth.guard';
     CourseserviceService,
     CountserviceService,
     AuthGuard,
+    ShareService,
     {
       provide:HTTP_INTERCEPTORS,
       useClass:TokenInterceptorService,

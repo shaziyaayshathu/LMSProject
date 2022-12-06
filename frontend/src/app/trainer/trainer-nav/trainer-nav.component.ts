@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShareService } from 'src/app/share.service';
 
 @Component({
   selector: 'app-trainer-nav',
@@ -11,8 +12,6 @@ export class TrainerNavComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.username=localStorage.getItem('name')
-    this.email=localStorage.getItem('email')
   }
 
 }

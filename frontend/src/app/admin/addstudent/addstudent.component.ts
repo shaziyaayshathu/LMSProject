@@ -47,4 +47,4 @@ export class AddstudentComponent implements OnInit {
     this.getcourseids()
   }
 
-}
+} 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShareService } from 'src/app/share.service';
 
 @Component({
   selector: 'app-student-nav',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentNavComponent implements OnInit {
 
-  constructor() { }
+  details:any = []
+  constructor(private share:ShareService) { }
 
   ngOnInit(): void {
+
+    this.details = this.share.getDetails()
+    this.details = this.details[0]
+    // console.log('from nav', this.details[0])
+
   }
 
 }

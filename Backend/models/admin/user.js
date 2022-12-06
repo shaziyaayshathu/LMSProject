@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema({
     required: true
   },
   dob: {
-    type: Date
+    type:String
   },
   address: {
     type: String,
