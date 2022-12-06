@@ -7,8 +7,8 @@ import { ShareService } from 'src/app/share.service';
   styleUrls: ['./trainer-nav.component.css']
 })
 export class TrainerNavComponent implements OnInit {
-  username:any
-  email:any
+  username=localStorage.getItem('name')
+  email=localStorage.getItem('email')
   constructor() { }
 
   ngOnInit(): void {
