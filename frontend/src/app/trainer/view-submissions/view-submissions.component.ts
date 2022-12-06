@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrainerapiService } from '../trainerapi.service';
 
 @Component({
   selector: 'app-view-submissions',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-submissions.component.css']
 })
 export class ViewSubmissionsComponent implements OnInit {
-
-  constructor() { }
+  course:any=localStorage.getItem('course')
+  submissions:any=[]
+  constructor(private api:TrainerapiService) { }
 
   ngOnInit(): void {
+    this.viewSubmissions()
+  }
+
+  viewSubmissions()
+  {
+    this.api.getSubmissions(this.course).subscribe(res=>{
+
+      this.submissions=res
+    })
   }
 
 }

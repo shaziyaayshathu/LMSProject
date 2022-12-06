@@ -13,7 +13,11 @@ const examSchema=mongoose.Schema({
             option4: String
         
           
-    }]
+    }],
+    answer:{
+        type:String,
+        required:true
+    }
         
          
 })

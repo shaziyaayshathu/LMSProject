@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrainerapiService } from '../trainerapi.service';
 
 @Component({
   selector: 'app-view-feedback',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewFeedbackComponent implements OnInit {
 
-  constructor() { }
+feedbacks:any=[{
+  name:'',
+  course:'',
+  feedback:''
+
+}
+]
+courseid:any=localStorage.getItem('course')
+  constructor(private api:TrainerapiService) { }
 
   ngOnInit(): void {
+   this. getFeedback()
+  }
+  getFeedback()
+  {
+    this.api.getFeedback(this.courseid).subscribe(res=>{
+      this.feedbacks=res
+    })
   }
 
 }

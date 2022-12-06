@@ -7,7 +7,7 @@
             <div class="header-and-name">
                 <!-- <h2 class="header">Course Content</h2><p class="course-name">Course name</p> -->
             </div>
-            <mat-accordion>
+            <!-- <mat-accordion>
 
                 <mat-expansion-panel>
             
@@ -19,19 +19,19 @@
                     <p>Course:</p>
                     <p>Feedback:</p>
                 </mat-expansion-panel>
-            </mat-accordion>
+            </mat-accordion> -->
                 <mat-accordion>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header style="background:#FFFEF2">
+                    <mat-expansion-panel *ngFor="let feed of feedbacks">
+                        <mat-expansion-panel-header style="background:#FFFEF2" >
                             <mat-panel-title>
-                                <h2>Smitha</h2>
+                                <h2>{{feed.name}}</h2>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p>Course:</p>
-                        <p>Feedback:</p>
+                        <p>{{feed.course}}:</p>
+                        <p>{{feed.feedback}}:</p>
                     </mat-expansion-panel>
                 </mat-accordion>
-                    <mat-accordion>
+                    <!-- <mat-accordion>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header style="background:#FFFDD1">
                                 <mat-panel-title>
@@ -41,7 +41,7 @@
                             <p>Course:</p>
                             <p>Feedback:</p>
                         </mat-expansion-panel>
-                    </mat-accordion>
+                    </mat-accordion> -->
             
                         
         </div>

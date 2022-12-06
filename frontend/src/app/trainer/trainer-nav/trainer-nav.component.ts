@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trainer-nav.component.css']
 })
 export class TrainerNavComponent implements OnInit {
-
+  username:any
+  email:any
   constructor() { }
 
   ngOnInit(): void {
+    this.username=localStorage.getItem('name')
+    this.email=localStorage.getItem('email')
   }
 
 }

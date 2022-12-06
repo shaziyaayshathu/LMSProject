@@ -39,6 +39,14 @@ deleteMaterial(id:any)
 {
   return this.http.delete('http://localhost:5200/trainer/uploads/'+id)
 }
+getFeedback(data:any)
+{
+  return this.http.get('http://localhost:5200/trainer/feedback/',data)
+}
+getSubmissions(data:any)
+{
+  return this.http.get('http://localhost:5200/trainer/submissions/',data)
+}
 }
 
 
