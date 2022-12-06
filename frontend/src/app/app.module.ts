@@ -20,7 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';  
 import {FileUploadModule} from 'ng2-file-upload';
 import { FileSelectDirective } from 'ng2-file-upload';
-
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './Student/home/home.component';
@@ -106,6 +106,8 @@ import { AuthGuard } from './auth.guard';
     TrainerMainComponent,
     ViewUploadsComponent,
     ViewSubmissionsComponent,
+    ShowstudentsComponent,
+    ShowtrainersComponent
     
   ],
   imports: [
@@ -129,7 +131,7 @@ import { AuthGuard } from './auth.guard';
     HttpClientModule,
     MatInputModule,
     ReactiveFormsModule,
-   
+    CommonModule
     
    
   ],

@@ -8,7 +8,7 @@ const verifytoken = require('../Middlewares/jwtVerify')
 
 //course api
 
-router.post('/addcourse',async (req,res)=>{
+router.post('/addcourse',verifytoken,async (req,res)=>{
     let data=req.body
     const course=new courseModel(data)
     await course.save((error,dbdata)=>{
@@ -34,7 +34,7 @@ router.get('/courses',verifytoken, async (req,res)=>{
     })
 })
 
-router.get('/editcourse/:id',(req,res)=>{
+router.get('/editcourse/:id',verifytoken,(req,res)=>{
     courseModel.findOne({"_id":req.params.id},(error,dbdata)=>{
         if(error){
             res.json(error)
@@ -46,14 +46,14 @@ router.get('/editcourse/:id',(req,res)=>{
 })
 
 
-router.put('/updatecourse/:id',async (req,res)=>{
+router.put('/updatecourse/:id',verifytoken,async (req,res)=>{
     let data=req.body
     await courseModel.findOneAndUpdate({"_id":req.params.id},data)
     res.send(data)
  })
 
 
-router.delete('/deletecourse/:id',(req,res)=>{
+router.delete('/deletecourse/:id',verifytoken,(req,res)=>{
     courseModel.remove({"_id":req.params.id},(err,data)=>{
       if(err){
         res.send("The error is "+err)
@@ -65,7 +65,7 @@ router.delete('/deletecourse/:id',(req,res)=>{
 
 //student api
 
-router.post('/addstudent',async (req,res)=>{
+router.post('/addstudent',verifytoken,async (req,res)=>{
     let data=req.body
     const student=new userModel(data)
     await student.save((error,dbdata)=>{
@@ -79,7 +79,7 @@ router.post('/addstudent',async (req,res)=>{
     
 })
 
-router.get('/students',async (req,res)=>{
+router.get('/students',verifytoken,async (req,res)=>{
     userModel.find((error,dbdata)=>{
         if(error){
             res.json(error)
@@ -91,7 +91,7 @@ router.get('/students',async (req,res)=>{
     })
 })
 
-router.get('/editstudent/:id',(req,res)=>{
+router.get('/editstudent/:id',verifytoken,(req,res)=>{
     userModel.findOne({"_id":req.params.id},(error,dbdata)=>{
         if(error){
             res.json(error)
@@ -103,14 +103,14 @@ router.get('/editstudent/:id',(req,res)=>{
 })
 
 
-router.put('/updatestudent/:id',async (req,res)=>{
+router.put('/updatestudent/:id',verifytoken,async (req,res)=>{
     let data=req.body
     await userModel.findOneAndUpdate({"_id":req.params.id},data)
     res.send(data)
  })
 
 
- router.delete('/deletestudent/:id',(req,res)=>{
+ router.delete('/deletestudent/:id',verifytoken,(req,res)=>{
     userModel.remove({"_id":req.params.id},(err,data)=>{
       if(err){
         res.send("The error is "+err)
@@ -123,7 +123,7 @@ router.put('/updatestudent/:id',async (req,res)=>{
 
 //trainer api
 
-router.post('/addtrainer',async (req,res)=>{
+router.post('/addtrainer',verifytoken,async (req,res)=>{
     let data=req.body
     const trainer=new userModel(data)
     await trainer.save((error,dbdata)=>{
@@ -136,7 +136,7 @@ router.post('/addtrainer',async (req,res)=>{
     })
 })
 
-router.get('/trainers',async (req,res)=>{
+router.get('/trainers',verifytoken,async (req,res)=>{
     userModel.find((error,dbdata)=>{
         if(error){
             res.json(error)
@@ -148,7 +148,7 @@ router.get('/trainers',async (req,res)=>{
 })
 
 
-router.get('/edittrainer/:id',(req,res)=>{
+router.get('/edittrainer/:id',verifytoken,(req,res)=>{
     userModel.findOne({"_id":req.params.id},(error,dbdata)=>{
         if(error){
             res.json(error)
@@ -160,13 +160,13 @@ router.get('/edittrainer/:id',(req,res)=>{
 })
 
 
-router.put('/updatetrainer/:id',async (req,res)=>{
+router.put('/updatetrainer/:id',verifytoken,async (req,res)=>{
     let data=req.body
     await userModel.findOneAndUpdate({"_id":req.params.id},data)
     res.send(data)
  })
 
- router.delete('/deletetrainer/:id',(req,res)=>{
+ router.delete('/deletetrainer/:id',verifytoken,(req,res)=>{
     userModel.remove({"_id":req.params.id},(err,data)=>{
       if(err){
         res.send("The error is "+err)
@@ -175,7 +175,7 @@ router.put('/updatetrainer/:id',async (req,res)=>{
     })
   })
 
-  router.get('/countcourse',(req,res)=>{
+  router.get('/countcourse',verifytoken,(req,res)=>{
     courseModel.countDocuments({},(error,dbdata)=>{
         if(error){
             res.json(error)
@@ -187,7 +187,7 @@ router.put('/updatetrainer/:id',async (req,res)=>{
 })
 
 
-router.get('/countstudent',(req,res)=>{
+router.get('/countstudent',verifytoken,(req,res)=>{
     userModel.countDocuments({role:"student"},(error,dbdata)=>{
         if(error){
             res.json(error)
@@ -198,7 +198,7 @@ router.get('/countstudent',(req,res)=>{
     })
 })
 
-router.get('/counttrainer',(req,res)=>{
+router.get('/counttrainer',verifytoken,(req,res)=>{
     userModel.countDocuments({role:"trainer"},(error,dbdata)=>{
         if(error){
             res.json(error)
