@@ -65,6 +65,7 @@ import { CourseserviceService } from './adminservices/courseservice.service';
 import { CountserviceService } from './adminservices/countservice.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AuthGuard } from './auth.guard';
+import { ShareService } from './share.service';
 
 
 
@@ -129,7 +130,7 @@ import { AuthGuard } from './auth.guard';
     HttpClientModule,
     MatInputModule,
     ReactiveFormsModule,
-   
+    
     
    
   ],
@@ -139,6 +140,7 @@ import { AuthGuard } from './auth.guard';
     CourseserviceService,
     CountserviceService,
     AuthGuard,
+    ShareService,
     {
       provide:HTTP_INTERCEPTORS,
       useClass:TokenInterceptorService,

@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit,AfterViewInit {
   @ViewChild(MatSidenav)
   sidenav!:MatSidenav;
 
+  details:any
+
   constructor(private observer:BreakpointObserver, private cdref:ChangeDetectorRef, private router:Router) { }
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
         this.cdref.detectChanges();
       }
     })
+
   }
 
   ngAfterViewInit(): void {
