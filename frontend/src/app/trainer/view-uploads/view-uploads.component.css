@@ -1,6 +1,6 @@
 .container {
     padding: 2rem 0rem;
-    
+  
   }
   
   h4 {
@@ -18,3 +18,9 @@
     border-width: 0;
     
   }
+  .body{
+    height: calc(100vh - 100px);  
+    
+    overflow:auto
+  }
+  
