@@ -9,10 +9,10 @@ import {catchError, map, take} from 'rxjs/operators';
 export class TrainerapiService {
 
   constructor(private http:HttpClient) { }
-  submitQuestions(data:any)
+  submitQuestions(data:any,course:any)
   {
     console.log(data)
-    return this.http.post('http://localhost:5200/trainer/addexam',data)
+    return this.http.post('http://localhost:5200/trainer/addexam',{data,course})
   }
 
   upload(data:any) {

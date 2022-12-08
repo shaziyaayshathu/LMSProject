@@ -20,9 +20,15 @@ const submissionModel=require('../models/submission')
 
 router.post('/addexam',async (req,res)=>{
     try {
-     // console.log(req.body)
-        const {title,qns,answer}=req.body
-        const newExam = new examModel({title,qns,answer})
+     console.log(req.body.course)
+     console.log(req.body.data.qns)
+     console.log(req.body.data.title)
+     const title=req.body.data.title
+     const qns=req.body.data.qns
+     
+       // const {title,qns}=req.body.data
+      const course=req.body.course
+        const newExam = new examModel({title,qns,course})
         await newExam.save()
         console.log(newExam)
         res.status(200).json({
@@ -84,6 +90,8 @@ router.post("/uploadPdf",upload.array("files") ,async (req, res) =>  {
     // }
     
     const  title= req.body.title;
+    const course=req.body.course
+    console.log(req.body.course)
     console.log(req.body.filename)
     let filePath = [];
       //const files=req.files
@@ -96,12 +104,12 @@ router.post("/uploadPdf",upload.array("files") ,async (req, res) =>  {
       else{
         throw new Error("File not found")
       }
-      const pdf = new pdfModel({title,filePath});
+      const pdf = new pdfModel({title,filePath,course});
       console.log(pdf)
       pdf.save((error, data) => {
         if (error) return res.status(400).json({ error });
         if (data) {
-          res.status(201).json({ data });
+          res.status(201).json(data);
         }
       });
 
@@ -143,6 +151,21 @@ router.get('/submissions',async (req,res)=>{
    const submissions=await submissionModel.find({course:Course})
    console.log(submissions)
    return res.json(submissions);
+   
+  } catch (error) {
+   
+   console.log(error)
+  }
+   
+})
+router.post('/submissions',async (req,res)=>{
+  try {
+    console.log(req.body)
+   const list=req.body
+   const sub=new submissionModel(list)
+   await sub.save()
+   console.log(sub)
+   res.send(sub)
    
   } catch (error) {
    

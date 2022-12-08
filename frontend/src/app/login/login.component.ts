@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       }else{
         console.log(userData[0][0].name)
         console.log(userData[0][0].email)
+        console.log(userData[0][0].courseID)
         localStorage.setItem('token',userData[1])
         localStorage.setItem('name',userData[0][0].name)
         localStorage.setItem('email',userData[0][0].email)

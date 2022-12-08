@@ -2,8 +2,10 @@ const mongoose=require('mongoose')
 // Init Schema
 const submissionSchema = mongoose.Schema({
     
-    title: {type: String},   
+    title: String, 
+    studName:String,  
     marks:Number,
+    course:String,
     created_at: {
         type: Date,
         default: Date.now(),
