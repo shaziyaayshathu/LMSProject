@@ -4,7 +4,11 @@ const router = express.Router();
 const courseModel = require('../models/admin/course')
 const userModel = require('../models/admin/user')
 const verifytoken = require('../Middlewares/jwtVerify')
+const feedbackModel = require('../models/admin/feedback')
 
+
+
+// for showing user's profile
 router.post('/profile',verifytoken, async (req, res) => {
      
     try {
@@ -19,7 +23,9 @@ router.post('/profile',verifytoken, async (req, res) => {
     }
 })            
 
-router.get('/courses', async(req,res)=>{
+
+// for displaying all courses in home page
+router.get('/courses',verifytoken, async(req,res)=>{
     try {
 
         data = await courseModel.find()
@@ -32,7 +38,9 @@ router.get('/courses', async(req,res)=>{
     }
 })
  
-router.post('/course', async(req,res)=>{
+
+// display single course in dialoge box
+router.post('/course',verifytoken, async(req,res)=>{
     try {
         
         id = req.body.id
@@ -47,7 +55,37 @@ router.post('/course', async(req,res)=>{
     }
 })
 
-                                                                      
+
+// for storing feedback to db
+router.post('/feedback', async(req,res)=>{
+    try {
+        
+        console.log(req.body)
+        let data = req.body.data
+        let newFeedback = new feedbackModel(data)
+        let savedFeedback = await newFeedback.save() 
+        res.send(savedFeedback)
+
+    } catch (error) {
+
+        console.log("error from feedback api", error)
+        
+    }
+    
+})
+
+router.post('/course-name', async(req,res)=>{
+    try {
+        // console.log(req.body.id)
+        course_id = req.body.id
+        // console.log(course_id)
+        data = await courseModel.find({courseID : course_id});
+        console.log(data)
+        res.send(data)
+    } catch (error) {
+        console.log("error from coursename api", error)
+    }
+})
 
 
 

@@ -23,4 +23,12 @@ export class StudentService {
     return this.http.post(`${this.apiUrl}/student/course`,{id})
   }
 
+  feedback(data:any){
+    return this.http.post(`${this.apiUrl}/student/feedback`,{data})
+  }
+
+  courseName(id:any){
+    return this.http.post(`${this.apiUrl}/student/course-name`,{id})
+  }
+
 }

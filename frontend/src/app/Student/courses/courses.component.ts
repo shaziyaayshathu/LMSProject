@@ -28,7 +28,6 @@ export class CoursesComponent implements OnInit {
   }
   dialog(id:any){
     this.matDialog.open(CourseDialogeComponent,{data:id})
-    console.log('clicked')
   }
 }
 

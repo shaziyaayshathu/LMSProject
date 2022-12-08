@@ -19,10 +19,10 @@ export class CourseDialogeComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) private data:string , private student:StudentService) { }
 
   ngOnInit(): void {
-    console.log(this.data)
+    // console.log(this.data)
 
-    this.student.course(this.data).subscribe(res=>{
-      this.course = res
+      this.student.course(this.data).subscribe(res=>{
+        this.course = res
       // console.log(this.course.courseName)
     })
   }

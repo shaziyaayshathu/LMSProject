@@ -66,9 +66,9 @@
                                         </mat-expansion-panel-header>
             
             
-                                        <textarea matInput placeholder="feedback here..."></textarea>
+                                        <textarea matInput placeholder="feedback here..." class="feedback-area form-control" [(ngModel)]="feedbackData.feedback" name="feedback"></textarea>
                                         <div class="submitbutton">
-                                            <button mat-raised-button color="primary">Submit</button>
+                                            <button type="submit" mat-raised-button color="primary" (click)="feedback(feedbackData)">Submit</button>
                                         </div>
                                     </mat-expansion-panel>
                                     </mat-accordion>
