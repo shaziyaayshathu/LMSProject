@@ -17,6 +17,7 @@ export class ViewUploadsComponent implements OnInit {
     this.api.getMaterials().subscribe(res=>{
       console.log(res)
       this.links=res;
+      console.log(this.links.filePath[0].file)
       
 
     })

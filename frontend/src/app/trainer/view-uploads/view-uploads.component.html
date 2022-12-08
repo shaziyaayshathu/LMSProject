@@ -17,10 +17,10 @@
             <tr *ngFor="let link of links,let i=index">
               <th scope="row">{{i+1}}</th>
               
-              <td scope="row">{{link.filePath.file}}</td>
+              <td scope="row" *ngFor="let j of link.filePath">{{j.file}}</td>
               
               <td>
-                <button type="button" class="btn btn-success" (click)="downloadMaterial(link._id)">Download</button>&nbsp;&nbsp;
+                <!-- <button type="button" class="btn btn-success" (click)="downloadMaterial(link._id)">Download</button>&nbsp;&nbsp; -->
                 <button type="button" class="btn btn-danger" (click)="deleteMaterial(link._id)">Delete</button>
               </td>
             </tr>

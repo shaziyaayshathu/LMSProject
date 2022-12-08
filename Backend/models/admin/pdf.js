@@ -9,6 +9,7 @@ const pdfSchema = mongoose.Schema({
     //     required: true,
     //     ref: "courseModel",
     // },
+    course:String,
     created_at: {
         type: Date,
         default: Date.now(),

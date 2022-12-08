@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SetUpExamsComponent  {
   
-  name = 'Angular';  
+  course=localStorage.getItem('course') ;
     
   examForm: FormGroup;  
      
@@ -47,7 +47,7 @@ export class SetUpExamsComponent  {
      
   onSubmit() { 
     console.log(this.examForm.value); 
-    this.api.submitQuestions(this.examForm.value).subscribe((res)=>{
+    this.api.submitQuestions(this.examForm.value,this.course).subscribe((res)=>{
       console.log(res);
       this.router.navigate(['trainer-home/hometrainer'])
       alert('Successfully created the exam')
