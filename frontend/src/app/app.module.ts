@@ -12,6 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatAccordion} from '@angular/material/expansion';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router, RouterModule } from '@angular/router';
 import {MatRadioModule} from '@angular/material/radio';
@@ -66,6 +67,7 @@ import { CountserviceService } from './adminservices/countservice.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AuthGuard } from './auth.guard';
 import { ShareService } from './share.service';
+import { CourseDialogeComponent } from './Student/courses/course-dialoge/course-dialoge.component';
 
 
 
@@ -108,7 +110,8 @@ import { ShareService } from './share.service';
     ViewUploadsComponent,
     ViewSubmissionsComponent,
     ShowstudentsComponent,
-    ShowtrainersComponent
+    ShowtrainersComponent,
+    CourseDialogeComponent
     
   ],
   imports: [
@@ -132,7 +135,7 @@ import { ShareService } from './share.service';
     HttpClientModule,
     MatInputModule,
     ReactiveFormsModule,
-    
+    MatDialogModule,
     CommonModule
     
    

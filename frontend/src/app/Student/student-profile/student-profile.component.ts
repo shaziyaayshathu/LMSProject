@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-student-profile',
@@ -8,13 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class StudentProfileComponent implements OnInit {
 
   details:any = []
+  data:any =[]
+  id = localStorage.getItem('id')
 
-  constructor() { }
+  constructor(private student:StudentService) { }
 
   ngOnInit(): void {
 
+    this.student.profile(this.id).subscribe(res =>{
+        this.data = res
+        this.data=this.data[0]
+        // console.log("from backend",this.data)
+    })
     
-
-  }
+  
+  }  
 
 }

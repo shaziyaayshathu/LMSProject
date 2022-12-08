@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentNavComponent implements OnInit {
 
+  username=localStorage.getItem('name')
+  email=localStorage.getItem('email')
+
   constructor() { }
 
   ngOnInit(): void {

@@ -27,6 +27,8 @@ app.use('/login', loginApi)
 const trainerapi=require('./routes/trainerapi')
 app.use('/trainer',trainerapi)
 
+const studentApi=require('./routes/studentApi')
+app.use('/student',studentApi)
 
 
 app.listen(PORT,()=>{

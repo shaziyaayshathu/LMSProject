@@ -2,21 +2,36 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
+html,
+body {
+    height: 100%;
+    font-family: "Roboto-bold", "Helvetica Neue", sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+}
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+font-family: "Roboto"; */
 
 
+.mat-dialog-container {
+    background-color: #E8F3D6;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+}

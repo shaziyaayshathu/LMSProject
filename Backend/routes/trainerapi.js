@@ -13,14 +13,16 @@ const storage=multer.diskStorage({
   }
 })
 const upload=multer({storage})
-const examModel=require('../models/admin/exam')
+const examModel=require('../models/admin/exam');
+const feedbackModel = require('../models/admin/feedback');
 const pdfModel=require('../models/admin/pdf')
+const submissionModel=require('../models/submission')
 
 router.post('/addexam',async (req,res)=>{
     try {
      // console.log(req.body)
-        const {title,qns}=req.body
-        const newExam = new examModel({title,qns})
+        const {title,qns,answer}=req.body
+        const newExam = new examModel({title,qns,answer})
         await newExam.save()
         console.log(newExam)
         res.status(200).json({
@@ -122,3 +124,30 @@ router.get('/uploads',async (req,res)=>{
   }
    
 })
+router.get('/feedback',async (req,res)=>{
+  try {
+   let  Course=req.body.couse
+   const feed=await feedbackModel.find({course:Course})
+   console.log(feed)
+   return res.json(feed);
+   
+  } catch (error) {
+   
+   console.log(error)
+  }
+   
+})
+router.get('/submissions',async (req,res)=>{
+  try {
+   let  Course=req.body.course
+   const submissions=await submissionModel.find({course:Course})
+   console.log(submissions)
+   return res.json(submissions);
+   
+  } catch (error) {
+   
+   console.log(error)
+  }
+   
+})
+
