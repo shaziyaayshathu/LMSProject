@@ -15,6 +15,10 @@ export class TrainerHomeComponent implements OnInit {
 
   logout(){
     localStorage.removeItem('token')
+    localStorage.removeItem('email')
+    localStorage.removeItem('name')
+    localStorage.removeItem('course')
+    localStorage.removeItem('id')
     this.router.navigateByUrl('/login')
   }
 }

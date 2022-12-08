@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       }else if(userData.status == '-1'){
         this.loginStatus = "Invalid credentials";
       }else{
+        
         console.log(userData[0][0].name)
         console.log(userData[0][0].email)
         console.log(userData[0][0].courseID)
@@ -43,20 +44,15 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('name',userData[0][0].name)
         localStorage.setItem('email',userData[0][0].email)
         localStorage.setItem('course',userData[0][0].courseID)
+        localStorage.setItem('id',userData[0][0]._id)
 
         if(userData[0][0].role == 'student'){
-          this.details = userData[0]
-          this.share.sendDetails(this.details)
           this.router.navigateByUrl('student-home')
         }
         else if(userData[0][0].role == 'trainer'){
-          this.details = userData[0]
-          this.share.sendDetails(this.details)
           this.router.navigateByUrl('trainer-home')
         }
         else if(userData[0][0].role == 'admin'){
-          this.details = userData[0]
-          this.share.sendDetails(this.details)
           this.router.navigateByUrl('admin')
         }
       }

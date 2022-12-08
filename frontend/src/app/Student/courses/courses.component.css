@@ -13,6 +13,9 @@ img{
    margin-bottom: 15px !important;
    /* border: 1px solid red; */
 }
+a{
+   text-decoration: none;
+}
 
 .container{
    padding-bottom: 50px;
@@ -20,6 +23,26 @@ img{
 .col{
    margin: 20px;
 }
+.col:hover{
+   box-shadow: 5px;
+
+}
 p{
    font-weight: bold;
+}
+.example-card:hover{
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   cursor: pointer;
+}
+
+/* .row{
+   display: flex;
+   flex-direction: column;
+    flex-wrap: wrap;
+} */
+matDialoge{
+   background-color: green;
+}
+.mat-dialog-container{
+   background-color: red !important;
 }

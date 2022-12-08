@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShareService } from 'src/app/share.service';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-student-profile',
@@ -9,14 +9,20 @@ import { ShareService } from 'src/app/share.service';
 export class StudentProfileComponent implements OnInit {
 
   details:any = []
+  data:any =[]
+  id = localStorage.getItem('id')
 
-  constructor(private share:ShareService) { }
+  constructor(private student:StudentService) { }
 
   ngOnInit(): void {
 
-    this.details = this.share.getDetails()
-    console.log("profile", this.details)
-
-  }
+    this.student.profile(this.id).subscribe(res =>{
+        this.data = res
+        this.data=this.data[0]
+        // console.log("from backend",this.data)
+    })
+    
+  
+  }  
 
 }

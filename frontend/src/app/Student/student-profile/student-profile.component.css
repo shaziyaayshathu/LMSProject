@@ -6,7 +6,11 @@
     text-align: center;
     padding: 23px;
     background-color: white;
+    
+}
 
+.col:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .container{
     height: calc(100vh - 115px);    /* justify-content: center !important; */
@@ -22,4 +26,8 @@
     position: relative;
     top: 15vh;
 
+}
+
+span{
+    font-weight: bold;
 }

@@ -1,0 +1,26 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class StudentService {
+
+  constructor(private http:HttpClient) { }
+
+  apiUrl:string="http://localhost:5200";
+
+  profile(id:any){
+    return this.http.post(`${this.apiUrl}/student/profile`,{id})
+                                                                      
+  }
+  courses(){
+    return this.http.get(`${this.apiUrl}/student/courses`)
+  }
+
+  course(id:any){
+    return this.http.post(`${this.apiUrl}/student/course`,{id})
+  }
+
+}

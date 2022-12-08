@@ -1,0 +1,12 @@
+.btn-primary{
+    color: black;
+
+}
+.btn-primary:hover{
+    color: white;
+}
+.container{
+    height: calc(100vh - 100px);  
+    
+    overflow:auto;
+}

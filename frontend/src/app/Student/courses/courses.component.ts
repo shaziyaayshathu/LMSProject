@@ -1,4 +1,7 @@
 import { Component, OnInit} from '@angular/core';
+import { StudentService } from '../student.service';
+import {MatDialog} from '@angular/material/dialog';
+import { CourseDialogeComponent } from './course-dialoge/course-dialoge.component';
 
 
 @Component({
@@ -8,12 +11,24 @@ import { Component, OnInit} from '@angular/core';
 })
 
 
-
 export class CoursesComponent implements OnInit {
 
-  constructor() { }
+  courses:any
+
+  constructor(private student:StudentService, private matDialog: MatDialog) { }
 
   ngOnInit(): void {
+
+    this.student.courses().subscribe(res=>{
+      // console.log(res)
+      this.courses=res
+      console.log(res)
+    })
+
+  }
+  dialog(id:any){
+    this.matDialog.open(CourseDialogeComponent,{data:id})
+    console.log('clicked')
   }
 }
 

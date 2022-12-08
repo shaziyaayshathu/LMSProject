@@ -1,8 +1,6 @@
 
 import {  Component, ViewChild,  OnInit, AfterViewInit } from '@angular/core';
-import { BreakpointObserver } from '@angular/cdk/layout'
 import { MatSidenav } from '@angular/material/sidenav';
-import {ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,32 +13,29 @@ export class HomeComponent implements OnInit,AfterViewInit {
   @ViewChild(MatSidenav)
   sidenav!:MatSidenav;
 
-  details:any
+ 
 
-  constructor(private observer:BreakpointObserver, private cdref:ChangeDetectorRef, private router:Router) { }
+  constructor( private router:Router) { }
 
   ngOnInit(): void {
-    // this.observer.observe(['(max-width:800px)']).subscribe((res)=>{
-    //   if(res.matches){
-    //     this.sidenav.mode='side';
-    //     this.sidenav.close();
-    //     this.cdref.detectChanges();
-    //   }
-    //   else{
-    //     this.sidenav.mode='over';
-    //     this.sidenav.close();
-    //     this.cdref.detectChanges();
-    //   }
-    // })
+    
 
-  }
+}
 
   ngAfterViewInit(): void {
     
   }
   logout(){
     localStorage.removeItem('token')
+    localStorage.removeItem('email')
+    localStorage.removeItem('name')
+    localStorage.removeItem('course')
+    localStorage.removeItem('id')
     this.router.navigateByUrl('/login')
   }
+
+ 
+    
+
 
 }
