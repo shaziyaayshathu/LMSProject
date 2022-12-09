@@ -1,1 +1,33 @@
-<p>evaluate-submission works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">SI No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Grade</th>
+              <th scope="col">Date</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let grade of grades,let i=index">
+              <td scope="row">{{i+1}}</td>
+              
+              <!-- <td>{{grade.title}}</td> -->
+              <td>{{grade.studName}}</td>
+              <td>{{grade.marks}}</td>
+              <td>{{grade.created_at}}</td>
+             
+              <!-- <td>
+                <button type="button" class="btn btn-success" (click)="editBook(book._id)">Update</button>
+                <button type="button" class="btn btn-danger" (click)="deleteBook(book._id)">Delete</button>
+              </td> -->
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

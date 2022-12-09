@@ -5,47 +5,18 @@
    
     <div class="cards container">
         <div class="row d-flex justify-content-center align-items-center" >
-            <div class="col col-lg-5 col-md-4 col-11">
-                <mat-card class="example-card">
+            <div class="col col-lg-5 col-md-4 col-11" *ngFor="let course of courses">
+                <a (click)="dialog(course._id)"><mat-card class="example-card">
                    
                         <mat-card-content class="content">
-                            <img src="../../../assets/studentassets/mean-training.png" alt="">
+                            <img src={{course.image}} alt="">
                         </mat-card-content>
                   
-                    <p>MEAN Stack</p>
+                    <p>{{course.courseName}}</p>
                 </mat-card>
+            </a>
             </div> 
-            <div class="col col-lg-5 col-md-4 col-11">
-                <mat-card class="example-card">
-                    
-                        <mat-card-content class="content">
-                            <img src="../../../assets/studentassets/selection-064-500x500-java.webp" alt="">
-                        </mat-card-content>
-                        <p>Java Fullstack</p>
-    
-                  </mat-card>
-            </div> 
-            <div class="col col-lg-5 col-md-4 col-11">
-                <mat-card class="example-card">
-                  
-                        <mat-card-content class="content">
-                            <img src="../../../assets/studentassets/python.jpeg" alt="">
-                        </mat-card-content>
-                        <p>Python Fullstack</p>
-    
-                
-                  </mat-card>
-            </div> 
-            <div class="col col-lg-5 col-md-4 col-11">
-                <mat-card class="example-card">
-               
-                        <mat-card-content class="content">
-                            <img src="../../../assets/studentassets/Blog-Article-MERN-Stack.jpg" alt="">
-                        </mat-card-content>
-                        <p>MERN Stack</p>
-    
-                  </mat-card>
-            </div> 
+            
                         
         </div>
     </div>    

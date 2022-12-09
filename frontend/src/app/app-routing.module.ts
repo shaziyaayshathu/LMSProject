@@ -74,7 +74,8 @@ const routes: Routes = [
       {path:'upload-materials',component:MaterialsUploadComponent},
       {path:'view-submissions',component:ViewSubmissionsComponent},
       {path:'student-feedback',component:ViewFeedbackComponent},
-      {path:'evaluate-submission',component:EvaluateSubmissionComponent}
+      {path:'evaluate-submission',component:EvaluateSubmissionComponent},
+     
       
   ]}
 ];

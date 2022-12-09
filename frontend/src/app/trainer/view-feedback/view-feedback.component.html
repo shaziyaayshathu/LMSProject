@@ -24,10 +24,10 @@
                     <mat-expansion-panel *ngFor="let feed of feedbacks">
                         <mat-expansion-panel-header style="background:#FFFEF2" >
                             <mat-panel-title>
-                                <h2>{{feed.name}}</h2>
+                                <h2>{{feed.studentName}}</h2>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p>{{feed.course}}:</p>
+                        <p>Course ID:{{feed.course}}:</p>
                         <p>{{feed.feedback}}:</p>
                     </mat-expansion-panel>
                 </mat-accordion>

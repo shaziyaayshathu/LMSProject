@@ -1,3 +1,15 @@
-<div>
+<!-- <div>
     <a routerLink=" ">{{submissions.title}}</a>
-</div>
+</div> -->
+<div class="container ">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col col-lg-8 col-md-10 col-10">
+            <div class="exam-container">
+                <ul *ngFor="let submission of submissions">
+                    <li><button class="btn-secondary" (click)="viewGrades(submission.title)">{{submission.title}}</button></li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>        

@@ -1,4 +1,5 @@
-const express=require('express')
+const express=require('express');
+const { request } = require('http');
 const router=express.Router();
 const multer=require('multer')
 module.exports=router
@@ -132,10 +133,12 @@ router.get('/uploads',async (req,res)=>{
   }
    
 })
-router.get('/feedback',async (req,res)=>{
+router.get('/feedback/:course',async (req,res)=>{
   try {
-   let  Course=req.body.couse
-   const feed=await feedbackModel.find({course:Course})
+   // console.log(req.body)
+   let  course=req.params.course
+   console.log(course)
+   const feed=await feedbackModel.find({course:course})
    console.log(feed)
    return res.json(feed);
    
@@ -145,9 +148,26 @@ router.get('/feedback',async (req,res)=>{
   }
    
 })
-router.get('/submissions',async (req,res)=>{
+//------------------for testing------------------------
+router.post('/feedback',async (req,res)=>{
   try {
-   let  Course=req.body.course
+    console.log(req.body)
+   const list=req.body
+   const feedlist=new feedbackModel(list)
+   await feedlist.save()
+   console.log(feedlist)
+   res.send(feedlist)
+   
+  } catch (error) {
+   
+   console.log(error)
+  }
+   
+})
+//-----------------------------------------------------------------------------------
+router.get('/submissions/:course',async (req,res)=>{
+  try {
+   let  Course=req.params.course
    const submissions=await submissionModel.find({course:Course})
    console.log(submissions)
    return res.json(submissions);
@@ -166,6 +186,43 @@ router.post('/submissions',async (req,res)=>{
    await sub.save()
    console.log(sub)
    res.send(sub)
+   
+  } catch (error) {
+   
+   console.log(error)
+  }
+   
+})
+router.post('/grades',async (req,res)=>{
+  try {
+    console.log(req.body)
+   const title=req.body.title
+   const course=req.body.course
+   const grades=await submissionModel.find({course:course,title:title})
+   console.log(grades)
+   return res.json(grades);
+  
+   
+  } catch (error) {
+   
+   console.log(error)
+  }
+   
+})
+
+//----------------------------for testing-------------------------
+router.post('/marks',async (req,res)=>{
+  try {
+    console.log(req.body)
+   const title=req.body.title
+   const course=req.body.course
+   const studName=req.body.studName
+   const marks=req.body.marks
+   const sub=new submissionModel({title,studName,marks,course})
+   await sub.save()
+   console.log(sub)
+   return res.json(sub)
+  
    
   } catch (error) {
    

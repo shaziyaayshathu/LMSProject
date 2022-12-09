@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TrainerapiService } from '../trainerapi.service';
 
 @Component({
   selector: 'app-evaluate-submission',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvaluateSubmissionComponent implements OnInit {
 
-  constructor() { }
+  title:any
+  course:any
+  grades:any=[]
+  constructor(private router:Router,private api:TrainerapiService,private routeActivated:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.routeActivated.queryParams
+      .subscribe(params => {
+        console.log(params); 
+       this.title = params['title']
+        this.course=params['course']
+       console.log(this.title); 
+      }
+    );
+    this.viewSubmissions();
+  }
+  viewSubmissions()
+  {
+    this.api.viewGrades(this.title,this.course).subscribe(res=>{
+      this.grades=res
+    })
+
   }
 
 }
