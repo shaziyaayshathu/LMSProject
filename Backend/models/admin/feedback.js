@@ -1,13 +1,14 @@
 const mongoose=require('mongoose')
 
 const feedbackSchema=mongoose.Schema({
+    
+    studentName:String,
     feedback:{
         type:String,
         required:true
     },
-    studentName:String,
     
-    course:String
+    course:Number
 
 
 })

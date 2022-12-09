@@ -5,7 +5,7 @@ const submissionSchema = mongoose.Schema({
     title: String, 
     studName:String,  
     marks:Number,
-    course:String,
+    course:Number,
     created_at: {
         type: Date,
         default: Date.now(),
