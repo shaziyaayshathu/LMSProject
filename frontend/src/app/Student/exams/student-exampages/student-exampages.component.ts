@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { StudentService } from '../../student.service';
 
 @Component({
   selector: 'app-student-exampages',
@@ -7,61 +9,62 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentExampagesComponent implements OnInit {
 
-  constructor() { }
+  response: any
 
-  ngOnInit(): void {
+  title = {
+    title: '',
+  }
+  questions: any
+  examContent: any
+
+  ansr = [{
+                  // dummy array
+  }]
+
+  data: any = {           // for storing qstn , ansr and selected ansr .then push it to an array
+    // question: '',
+    // answer: '',       
+    // selectedAnsr: ''
   }
 
-  exams = [
-    {
-      question : "Sample question ?",
-      options:
-        {A : "Option A",
-         B : "Option B",
-         C : "Option C",
-         D : "Option D"
+  dataArray: any = []    
+
+  constructor(private student: StudentService, private activeId: ActivatedRoute) { }
+
+
+
+  ngOnInit(): void {
+
+    let id = this.activeId.snapshot.paramMap.get('id')
+
+    this.student.exam(id).subscribe(res => {
+      console.log(res)
+      this.response = res
+      this.examContent = this.response[0]
+      this.title.title = this.examContent.title  // display title
+      this.questions = this.examContent.qns      // storing questions array
+
+      for (let i = 0; i < this.questions.length; i++) {
+        console.log(i)
+        this.data = {
+          question: this.questions[i].question,
+          answer: this.questions[i].answer,
+          selectedAnsr: ''
         }
-      
-    },
-    {
-      question : "Sample question?",
-      options:
-        {A : "Option A",
-         B : "Option B",
-         C : "Option C",
-         D : "Option D"
-        }
-      
-    },
-    {
-      question : "Sample question 3?",
-      options:
-        {A : "Option A",
-         B : "Option B",
-         C : "Option C",
-         D : "Option D"
-        }
-      
-    },
-    {
-      question : "Sample question 4?",
-      options:
-        {A : "Option A",
-         B : "Option B",
-         C : "Option C",
-         D : "Option D"
-        }
-      
-    },
-    {
-      question : "Sample question 5?",
-      options:
-        {A : "Option A",
-         B : "Option B",
-         C : "Option C",
-         D : "Option D"
-        }
-      
-    }
-  ]
+        this.dataArray.push(this.data)
+      }
+      // this.data.question = this.questions
+      console.log("data", this.dataArray)
+
+      // console.log(this.questions)
+    })
+
+  }
+
+  A(ansr: any) {
+    console.log(ansr)
+    // console.log(ansr[2].answer3)
+  }
+
+
 }

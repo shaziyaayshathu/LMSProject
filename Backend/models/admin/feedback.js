@@ -7,7 +7,9 @@ const feedbackSchema=mongoose.Schema({
     },
     studentName:String,
     
-    course:String
+    course:String,
+
+    courseName:String
 
 
 })

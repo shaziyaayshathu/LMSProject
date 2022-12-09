@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-exams',
@@ -8,14 +9,24 @@ import { Router } from '@angular/router';
 })
 export class ExamsComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  exams:any
+  course = localStorage.getItem('course')
+  id:any
+
+  constructor(private router:Router, private student:StudentService) { }
 
   ngOnInit(): void {
+
+    this.student.exams(this.course).subscribe(res=>{
+      this.exams = res
+      console.log(this.exams)
+    })
+
   }
 
-  exam(){
-      console.log('A')
-      this.router.navigateByUrl('/student-home/student-exampage')
-      console.log('B')
+  attemptExam(id:any){
+      // console.log('A',id)
+      this.router.navigateByUrl(`/student-home/student-exampage/${id}`) 
   }
 }
+ 

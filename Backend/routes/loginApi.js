@@ -41,10 +41,10 @@ router.post('', async(req, res)=>{
             if(loginData == null){
                 
                 loginData = await userModel.find({email:Email})  
-                console.log("after checking db",loginData)
+                console.log("after checking db",loginData) 
             }
             
-            if(loginData == ''){
+            if(loginData == ''){ 
                 console.log('user dosent exist')
                 res.send({'status':'0'})
             }else if(loginData[0].password != Password){

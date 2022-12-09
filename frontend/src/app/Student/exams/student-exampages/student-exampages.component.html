@@ -3,20 +3,21 @@
         <div class="col col-lg-6 col-md-10 col-10">
             <div class="exam-container">
                 <form >
-                    <ul ><h3>Exam Name</h3>
-                        <li *ngFor="let qstn of exams, let i = index" >
+                    <ul ><h3>{{title.title}}</h3>
+                        <li *ngFor="let qstn of questions; let j of dataArray ; let i = index">
                             <p class="qstn">{{i+1}}.&nbsp; {{qstn.question}}</p> <ul class="ansr">
-                                <li><input type="radio" name={{i}} id="">&nbsp; {{qstn.options.A}}</li>
-                                <li><input type="radio" name={{i}} id="">&nbsp; {{qstn.options.B}}</li>
-                                <li><input type="radio" name={{i}} id="">&nbsp; {{qstn.options.C}}</li>
-                                <li><input type="radio" name={{i}} id="">&nbsp; {{qstn.options.D}}</li>
+                                <li><input type="radio" name={{i}} id="" [(ngModel)]="ansr[i]" value={{qstn.option1}}>&nbsp; {{qstn.option1}}</li>
+                                <li><input type="radio" name={{i}} id="" [(ngModel)]="ansr[i]" value={{qstn.option2}}>&nbsp; {{qstn.option2}}</li>
+                                <li><input type="radio" name={{i}} id="" [(ngModel)]="ansr[i]" value={{qstn.option3}}>&nbsp; {{qstn.option3}}</li>
+                                <li><input type="radio" name={{i}} id="" [(ngModel)]="ansr[i]" value={{qstn.option4}}>&nbsp; {{qstn.option4}}</li>
+                                <!-- {{qstn.answer}}  -->
                             </ul><hr>
                         </li>
                     </ul>
                     <div class="button">
-                        <button class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+                        <button type="submit" class="btn btn-primary" (click)="A(dataArray)">Submit</button>
+                    </div> 
+                </form> 
             </div>
         </div>
     </div>

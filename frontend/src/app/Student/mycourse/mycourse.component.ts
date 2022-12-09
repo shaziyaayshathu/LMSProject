@@ -11,10 +11,11 @@ export class MycourseComponent implements OnInit {
   feedbackData ={
     studentName: localStorage.getItem('name'),
     feedback : '',
-    course : ''
+    course : localStorage.getItem('course'),
+    courseName: ''
   }
   id = localStorage.getItem('course')
-  courseName:any
+  coursedetails:any
  
   constructor(private student:StudentService) { }
 
@@ -22,19 +23,19 @@ export class MycourseComponent implements OnInit {
 
     this.student.courseName(this.id).subscribe(res=>{
       // console.log(res)
-      this.courseName = res
-      this.courseName = this.courseName[0].courseName 
-      console.log(this.courseName)
-      this.feedbackData.course = this.courseName
+      this.coursedetails = res
+      this.feedbackData.courseName = this.coursedetails[0].courseName 
+      // console.log(this.courseName)
+      // this.feedbackData.course = this.courseName
 
     })
  
   }
 
    feedback(data:any){
-    console.log(data)
+    // console.log(data)
     this.student.feedback(data).subscribe(res=>{
-      console.log(res)
+      // console.log(res)
     })
     this.feedbackData.feedback = ''
 

@@ -5,6 +5,8 @@ const courseModel = require('../models/admin/course')
 const userModel = require('../models/admin/user')
 const verifytoken = require('../Middlewares/jwtVerify')
 const feedbackModel = require('../models/admin/feedback')
+const examModel = require('../models/admin/exam')
+const submissionModel = require('../models/submission')
 
 
 
@@ -57,7 +59,7 @@ router.post('/course',verifytoken, async(req,res)=>{
 
 
 // for storing feedback to db
-router.post('/feedback', async(req,res)=>{
+router.post('/feedback', verifytoken, async(req,res)=>{
     try {
         
         console.log(req.body)
@@ -74,7 +76,8 @@ router.post('/feedback', async(req,res)=>{
     
 })
 
-router.post('/course-name', async(req,res)=>{
+// for taking course name
+router.post('/course-name',verifytoken, async(req,res)=>{
     try {
         // console.log(req.body.id)
         course_id = req.body.id
@@ -87,6 +90,32 @@ router.post('/course-name', async(req,res)=>{
     }
 })
 
+// for displaying all exam of a specific courseID in exams page
+router.post('/exams', async(req, res)=>{
+    try {
+        course_id = req.body.id
+        exam = await examModel.find({course : course_id})
+        console.log(exam)
+        res.send(exam)
+    } catch (error) {
+        console.log("error from exams api", error)
+    }
+})
+
+// for displaying single exam according to id 
+router.post('/exams/:id', async(req, res)=>{
+    try {
+        id = req.params.id
+        console.log(id)
+        exam = await examModel.find({_id : id})
+        console.log(exam)
+        res.send(exam)
+    } catch (error) { 
+        console.log("error from single exams api", error)
+    }
+})
+ 
+  
 
 
 
