@@ -15,9 +15,9 @@ export class GradesComponent implements OnInit {
 
 
   constructor() { }
-
+ 
   ngOnInit(): void {
    
   }
-
+  
 }
