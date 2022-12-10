@@ -21,16 +21,16 @@
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <table class="table table-hover">
-                  <thead>
-                    <tr>
+                  <thead >
+                    <tr class="head">
                        <th>Exam Name</th>
                       <th>Mark</th>
                     </tr>
                   </thead>
-                  <tbody *ngFor="let A of response">
-                    <tr>
+                  <tbody  *ngFor="let A of response">
+                    <tr class="tbody">
                       <td>{{A.title}}</td>
-                      <td>10</td>
+                      <td>{{A.marks}}</td>
                     </tr>
                   </tbody>
                 </table>

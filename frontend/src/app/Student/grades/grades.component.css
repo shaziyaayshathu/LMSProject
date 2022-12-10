@@ -4,3 +4,11 @@ tbody.collapse.in {
 .body{
   height:calc(100vh - 100px);
 }
+
+/* .tbody{
+  margin-top: 20px !important;
+  padding: 20px !important;
+}
+.head{
+  margin-bottom: 25px !important;
+} */

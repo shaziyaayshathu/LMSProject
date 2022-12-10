@@ -28,15 +28,15 @@ response:any
   ngOnInit(): void {
 
     this.student.courseName(this.data.id).subscribe(res =>{
-      console.log(res)
+      // console.log(res)
       this.courseName = res 
       this.courseName = this.courseName[0]
      })
 
-    console.log(this.data)
+    // console.log(this.data)
    this.student.grades(this.data).subscribe(res=>{
     this.response = res
-    console.log(this.response)
+    // console.log(this.response)
    })
 
    
