@@ -16,10 +16,17 @@ export class MycourseComponent implements OnInit {
   }
   id = localStorage.getItem('course')
   coursedetails:any
- 
+  
+  sessions:any = []
+
   constructor(private student:StudentService) { }
 
   ngOnInit(): void {
+
+    this.student.myCOurse(this.id).subscribe(res=>{
+      console.log(res)
+      this.sessions = res
+    })
 
     this.student.courseName(this.id).subscribe(res=>{
       // console.log(res)

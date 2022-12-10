@@ -43,6 +43,9 @@ export class StudentService {
     return this.http.post(`${this.apiUrl}/student/grades`,{data},data)
   }
 
+  myCOurse(id:any){
+    return this.http.post(`${this.apiUrl}/student/uploads`,{id})
+  }
   
 
 }

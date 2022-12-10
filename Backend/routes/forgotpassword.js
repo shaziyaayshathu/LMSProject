@@ -33,7 +33,7 @@ router.post('/forgot', async(req, res)=>{
     }else{
         pw = data[0].password
         name = data[0].name
-        console.log(pw)
+        console.log(pw) 
         console.log(name)
         const mailOptions = {
             from: 'lessonly2022@gmail.com',
@@ -44,8 +44,8 @@ router.post('/forgot', async(req, res)=>{
      Password :  ${pw} 
 
 NB : If the request isn't from your side , kindly contact the admin ASAP `
-          };
-        transporter.sendMail(mailOptions, function(error, info){
+          }; 
+        transporter.sendMail(mailOptions, function(error, info){  
             if (error) {
 	            console.log(error);
                 console.log("errorrrr")

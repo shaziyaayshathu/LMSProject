@@ -4,19 +4,21 @@
             <div class="header-and-name">
                 <h2 class="header">Course Content</h2><p class="course-name">Course name</p>
             </div>
+            <div *ngFor="let session of sessions">
             <mat-accordion>
 
                 <mat-expansion-panel>
             
                     <mat-expansion-panel-header style="background:#FFFDD1">
                         <mat-panel-title>
-                            <h2>Session 1</h2>
+                            <h2>{{session.title}}</h2>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <p>Session 1 here....</p>
+                    <p>Session contents here....</p>
                 </mat-expansion-panel>
             </mat-accordion>
-                <mat-accordion>
+            </div>
+                <!-- <mat-accordion>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header style="background:#FFFEF2">
                             <mat-panel-title>
@@ -56,7 +58,7 @@
                                     </mat-expansion-panel-header>
                                     <p>session 5 here....</p>
                                 </mat-expansion-panel>
-                                </mat-accordion>
+                                </mat-accordion> -->
                                 <mat-accordion>
                                     <mat-expansion-panel>
                                         <mat-expansion-panel-header style="background:#FFFEF1">

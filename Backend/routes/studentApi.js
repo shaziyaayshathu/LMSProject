@@ -7,7 +7,7 @@ const verifytoken = require('../Middlewares/jwtVerify')
 const feedbackModel = require('../models/admin/feedback')
 const examModel = require('../models/admin/exam')
 const submissionModel = require('../models/submission')
-
+const pdfModel=require('../models/admin/pdf')
 
 
 // for showing user's profile
@@ -133,6 +133,21 @@ router.post('/grades', async(req, res)=>{
         console.log("error from  exams api", error)
     }
 })
+
+router.post('/uploads',async (req,res)=>{
+    try {
+     id = req.body.id
+     console.log(id)
+     const list=await pdfModel.find({course : id})
+     console.log(list)
+     return res.json(list);
+     
+    } catch (error) {
+     
+     console.log(error)
+    }
+     
+  })
 
 module.exports = router
  

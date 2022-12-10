@@ -111,6 +111,7 @@ router.post("/uploadPdf",upload.array("files") ,async (req, res) =>  {
         if (error) return res.status(400).json({ error });
         if (data) {
           res.status(201).json(data);
+          
         }
       });
 
