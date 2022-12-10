@@ -17,18 +17,30 @@ export class GradesComponent implements OnInit {
 data={
   "id":localStorage.getItem('course'),
   "name":localStorage.getItem('name')
-  
 }
+courseName:any =[]
+
+response:any
   constructor(private student:StudentService) { 
     
   }
  
   ngOnInit(): void {
+
+    this.student.courseName(this.data.id).subscribe(res =>{
+      console.log(res)
+      this.courseName = res 
+      this.courseName = this.courseName[0]
+     })
+
     console.log(this.data)
    this.student.grades(this.data).subscribe(res=>{
-    console.log(res)
+    this.response = res
+    console.log(this.response)
    })
 
-  }
+   
+
+  } 
   
 }

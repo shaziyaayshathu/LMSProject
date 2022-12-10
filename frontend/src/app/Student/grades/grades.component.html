@@ -1,13 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body> -->
+
 <div class="body">
 <div class="container mt-3">
   <h2>GRADE</h2>  
@@ -16,7 +7,6 @@
       <tr>
          <th>Course Name</th>
         <th>Course id</th>
-        <th>Overall Grade</th>
       </tr>
     </thead>
     <tbody>
@@ -24,12 +14,10 @@
         
         <td>
           <mat-accordion>
-    
             <mat-expansion-panel>
-        
                 <mat-expansion-panel-header style="background:#ffffff">
                     <mat-panel-title>
-                        Certified specialist in MEAN stack
+                        {{courseName.courseName}}
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <table class="table table-hover">
@@ -39,28 +27,27 @@
                       <th>Mark</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody *ngFor="let A of response">
                     <tr>
-                      <td>111</td>
-                     <td>A+</td>
-                
-                    </tbody>
-                  </table>
+                      <td>{{A.title}}</td>
+                      <td>10</td>
+                    </tr>
+                  </tbody>
+                </table>
                     
                   
                <!--<p>upload dashboard</p>-->
             </mat-expansion-panel>
         </mat-accordion>
         </td>
-        <td>111</td>
-        <td>A+</td>
+        <td>{{data.id}}</td>
                 
+      </tr>
        
        
        
        
-       
-        <tr>
+        <!-- <tr>
         
             <td>
                 <mat-accordion>
@@ -92,10 +79,10 @@
             </td>
         <td>112</td>
             <td>A</td>
-          </tr>
+          </tr> -->
        
 
-          <tr>
+          <!-- <tr>
         
             <td>
                 <mat-accordion>
@@ -127,7 +114,7 @@
             </td>
         <td>113</td>
             <td>A</td>
-          </tr>
+          </tr> -->
 
 
 

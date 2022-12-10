@@ -124,7 +124,7 @@ router.post('/grades', async(req, res)=>{
     console.log(req.body)
     try {
       let data=req.body.data
-       let  course_id = data.id
+       let  course_id = data.id 
         let name=data.name
         grades = await submissionModel.find({course : course_id,studName:name})
         console.log(grades)
@@ -135,3 +135,4 @@ router.post('/grades', async(req, res)=>{
 })
 
 module.exports = router
+ 
