@@ -4,7 +4,7 @@
             <div class="exam-container">
                 <form >
                     <ul ><h3>{{title.title}}</h3>
-                        <li *ngFor="let qstn of questions; let j of dataArray ; let i = index">
+                        <li *ngFor="let qstn of questions; let i = index">
                             <p class="qstn">{{i+1}}.&nbsp; {{qstn.question}}</p> <ul class="ansr">
                                 <li><input type="radio" name={{i}} id="" [(ngModel)]="ansr[i]" value={{qstn.option1}}>&nbsp; {{qstn.option1}}</li>
                                 <li><input type="radio" name={{i}} id="" [(ngModel)]="ansr[i]" value={{qstn.option2}}>&nbsp; {{qstn.option2}}</li>

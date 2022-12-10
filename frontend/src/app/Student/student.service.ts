@@ -30,7 +30,7 @@ export class StudentService {
   courseName(id:any){
     return this.http.post(`${this.apiUrl}/student/course-name`,{id})
   }
-
+  
   exams(id:any){
     return this.http.post(`${this.apiUrl}/student/exams`,{id})
   }

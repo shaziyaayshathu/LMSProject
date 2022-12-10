@@ -27,7 +27,7 @@ export class StudentExampagesComponent implements OnInit {
     // selectedAnsr: ''
   }
 
-  dataArray: any = []    
+  dataArray :any   
 
   constructor(private student: StudentService, private activeId: ActivatedRoute) { }
 
@@ -43,18 +43,19 @@ export class StudentExampagesComponent implements OnInit {
       this.examContent = this.response[0]
       this.title.title = this.examContent.title  // display title
       this.questions = this.examContent.qns      // storing questions array
+      this.dataArray = new Array(this.questions.length)
+      // for (let i = 0; i < this.questions.length; i++) {
 
-      for (let i = 0; i < this.questions.length; i++) {
-        console.log(i)
-        this.data = {
-          question: this.questions[i].question,
-          answer: this.questions[i].answer,
-          selectedAnsr: ''
-        }
-        this.dataArray.push(this.data)
-      }
+        
+      //   this.data = {
+      //     question: this.questions[i].question,
+      //     answer: this.questions[i].answer,
+      //     selectedAnsr: ''
+      //   }
+      //   this.dataArray.push(this.data)
+      // }
       // this.data.question = this.questions
-      console.log("data", this.dataArray)
+      console.log("dataArray", this.dataArray)
 
       // console.log(this.questions)
     })
