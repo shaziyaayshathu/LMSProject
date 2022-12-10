@@ -119,6 +119,19 @@ router.post('/exams/:id', async(req, res)=>{
 
   
 
-
+// for displaying grade according to id 
+router.post('/grades', async(req, res)=>{
+    console.log(req.body)
+    try {
+      let data=req.body.data
+       let  course_id = data.id
+        let name=data.name
+        grades = await submissionModel.find({course : course_id,studName:name})
+        console.log(grades)
+        res.send(grades)
+    } catch (error) { 
+        console.log("error from  exams api", error)
+    }
+})
 
 module.exports = router

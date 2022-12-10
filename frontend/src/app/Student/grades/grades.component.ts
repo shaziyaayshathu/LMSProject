@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { StudentService } from '../student.service';
 
 
 @Component({
@@ -13,11 +14,21 @@ import { Component, OnInit} from '@angular/core';
 
 export class GradesComponent implements OnInit {
 
-
-  constructor() { }
-
-  ngOnInit(): void {
-   
+data={
+  "id":localStorage.getItem('course'),
+  "name":localStorage.getItem('name')
+  
+}
+  constructor(private student:StudentService) { 
+    
   }
+ 
+  ngOnInit(): void {
+    console.log(this.data)
+   this.student.grades(this.data).subscribe(res=>{
+    console.log(res)
+   })
 
+  }
+  
 }
