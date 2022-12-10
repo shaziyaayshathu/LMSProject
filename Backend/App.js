@@ -30,6 +30,9 @@ app.use('/trainer',trainerapi)
 const studentApi=require('./routes/studentApi')
 app.use('/student',studentApi)
 
+const forgotPassword = require('./routes/forgotpassword')
+app.use('/forgot-password',forgotPassword);
+
 
 app.listen(PORT,()=>{
     console.log(`.......Server is listening at port ${PORT}........`)

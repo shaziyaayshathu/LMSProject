@@ -68,6 +68,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { AuthGuard } from './auth.guard';
 import { ShareService } from './share.service';
 import { CourseDialogeComponent } from './Student/courses/course-dialoge/course-dialoge.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 
 
 
@@ -111,7 +112,8 @@ import { CourseDialogeComponent } from './Student/courses/course-dialoge/course-
     ViewSubmissionsComponent,
     ShowstudentsComponent,
     ShowtrainersComponent,
-    CourseDialogeComponent
+    CourseDialogeComponent,
+    ForgotPasswordComponent
     
   ],
   imports: [

@@ -21,4 +21,8 @@ export class LoginService {
     return !! localStorage.getItem('token')
   }
 
+  passwordRecovery(mail:any){
+    return this.http.post(`${this.server}/forgot-password/forgot`,mail)
+  }
+
 }
