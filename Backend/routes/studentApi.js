@@ -119,10 +119,11 @@ router.post('/exams/:id', async(req, res)=>{
 
 // for displaying grade according to id 
 router.post('/grades', async(req, res)=>{
+    console.log(req.body)
     try {
-       
-       let  course_id = req.body.id
-        let name=req.body.name
+      let data=req.body.data
+       let  course_id = data.id
+        let name=data.name
         grades = await submissionModel.find({course : course_id,studName:name})
         console.log(grades)
         res.send(grades)
