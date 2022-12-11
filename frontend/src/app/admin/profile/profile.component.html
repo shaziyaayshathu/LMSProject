@@ -8,11 +8,27 @@
         <br>
         <p>Username : admin</p><br>
         <p>password : 12345</p><br>
-        <button class="btn btn-primary" routerLink="changepass">Change Password</button>
+        <button class="btn btn-primary " (click)="change()">Change password</button>
+        <div class="{{ishide}} ">
+            <p>OTP has been sent to the registered email id.Please check your mail</p>
+            <input type="number" name="otp" id="otp" class="form-control" placeholder="Enter otp" [(ngModel)]="otp">
+            <button class="btn btn-primary {{ishide}}"  (click)="submitotp()">Submit OTP</button>
+        </div>
 
     </div>
     <div class="col-lg-6 col-sm-12">
-        <router-outlet></router-outlet>
+        <div class="{{enterpasswordhide}}">
+        <form>
+            <div class="form-group">
+              <label for="confirmpass"> New Password</label>
+              <input type="text" class="form-control" id="newp" name="newp" [(ngModel)]="newp" >
+            </div>
+            
+            <button type="submit" class="btn btn-primary" (click)="changepassword()">Submit</button>
+          </form>
+        </div>
     </div>
+    <p class="{{incorrectotp}}" style="color: red;">Incorrect OTP</p>
+    <p class="{{resetpassword}}" style="color:green;">password changed successfully</p>
 </div>
 </div>

@@ -1,0 +1,6 @@
+.hide,.enter-password-hide,.showincorrectotp,.hide-reset-pass{
+    display: none;
+}
+.show{
+    display: block;
+}

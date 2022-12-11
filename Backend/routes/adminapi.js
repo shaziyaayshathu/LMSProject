@@ -1,9 +1,11 @@
 const express=require('express')
 const router=express.Router();
 module.exports=router
+const nodemailer=require('nodemailer')
 
 const courseModel=require('../models/admin/course')
 const userModel=require('../models/admin/user')
+const adminModel=require('../models/admin/admin')
 const verifytoken = require('../Middlewares/jwtVerify')
 
 //course api
@@ -200,6 +202,83 @@ router.get('/countstudent',verifytoken,(req,res)=>{
 
 router.get('/counttrainer',verifytoken,(req,res)=>{
     userModel.countDocuments({role:"trainer"},(error,dbdata)=>{
+        if(error){
+            res.json(error)
+        }
+        else{
+           res.json(dbdata)
+        }
+    })
+})
+
+//change password
+var newotp;
+const generateotp=()=>{
+    newotp= Math.floor(1000+Math.random()*9000)
+    return newotp
+  }
+
+router.get('/sendMail',async (req,res)=>{
+    otp=generateotp()
+    console.log(otp)
+    let mailTransporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'anupamamadhu121@gmail.com',
+            pass: 'tgvamocvxerizprl'
+        }
+    });
+    
+    let mailDetails = {
+        from: 'abc@gmail.com',
+        to: 'anupamamt000@gmail.com',
+        subject: 'Password change request',
+        text: ` Your OTP to change your password is ${otp}.`
+    };
+     
+    mailTransporter.sendMail(mailDetails, function(err, data) {
+        if(err) {
+            console.log('Error Occurs'+err);
+        } else {
+            console.log('Email sent successfully');
+        }
+    });
+    
+    res.json("sent")
+})
+router.post('/getotp',(req,res)=>{
+     let enteredotp=req.body.otp
+    if(enteredotp == newotp){
+        res.json("otp matched")
+    }
+    else{
+        res.json("incorrect otp")
+    }
+})
+
+router.put('/changepass',async (req,res)=>{
+    let data=req.body.newp
+    await adminModel.findOneAndUpdate({"email":"admin@gmail.com"},{$set:{"password":data}})
+        res.json("success")
+    
+
+ })
+
+ router.get('/admindata',async (req,res)=>{
+    adminModel.find((error,dbdata)=>{
+        if(error){
+            res.json(error)
+        }
+        else{
+           res.json(dbdata)
+        }
+    })
+})
+
+router.post('/addadmin',async (req,res)=>{
+    let data=req.body
+    const admin=new adminModel(data)
+    await admin.save((error,dbdata)=>{
         if(error){
             res.json(error)
         }
