@@ -17,4 +17,7 @@ export class ChangepasswordService {
   changepass(data:any){
     return this.http.put<any>(`${this.server}/admin/changepass`,data)
   }
+  getadmin(){
+    return this.http.get<any>(`${this.server}/admin/admindata`)
+  }
 }

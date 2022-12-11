@@ -4,10 +4,13 @@
 
     <div class="row" style="margin:50px;">
     <div class="col-lg-6 col-sm-12">
-        <h1>Admin</h1>
+        <h1>Hello Admin</h1>
         <br>
-        <p>Username : admin</p><br>
-        <p>password : 12345</p><br>
+        <div *ngFor="let admin of admindata">
+        <p >email : {{admin.email}}</p><br>
+        <p>password : {{admin.password}}</p><br>
+        </div>
+    
         <button class="btn btn-primary " (click)="change()">Change password</button>
         <div class="{{ishide}} ">
             <p>OTP has been sent to the registered email id.Please check your mail</p>

@@ -15,7 +15,12 @@ export class ProfileComponent implements OnInit {
   incorrectotp="showincorrectotp";
   newp:any;
   resetpassword="hide-reset-pass"
+  admindata:any=[]
   ngOnInit(): void {
+    this.changepass.getadmin().subscribe((res:any)=>{
+        this.admindata=res;
+        console.log(this.admindata)
+    })
   }
   change(){
     this.changepass.send().subscribe((res)=>{
@@ -46,4 +51,5 @@ export class ProfileComponent implements OnInit {
     }
   })
   }
+
 }
