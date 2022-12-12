@@ -60,3 +60,12 @@ mat-accordion{
   padding: 10px;
   margin-bottom: 10px;
 }
+
+.contents{
+  text-decoration: none;
+  color: black;
+}
+
+.items{
+  cursor: pointer;
+}

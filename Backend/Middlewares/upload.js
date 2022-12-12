@@ -20,8 +20,9 @@ options:{
       bucketName: dbConfig.imgBucket,
       filename: `${Date.now()}-bezkoder-${file.originalname}`
     };
+    
   }
-});
+}); 
 
 var uploadFiles = multer({ storage: storage }).single("file");
 var uploadFilesMiddleware = util.promisify(uploadFiles);

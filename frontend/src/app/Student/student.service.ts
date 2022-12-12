@@ -47,5 +47,14 @@ export class StudentService {
     return this.http.post(`${this.apiUrl}/student/uploads`,{id})
   }
   
+  download(fileName: any){
+    const fileObj = {
+        fileName : fileName
+    };
+    // console.log(fileObj);
+    return this.http.post(`${this.apiUrl}/student/download`, fileObj, {
+        responseType : 'blob',
+    });
+} 
 
 }

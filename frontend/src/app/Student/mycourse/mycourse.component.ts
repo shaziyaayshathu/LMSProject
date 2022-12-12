@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as saveAs from 'file-saver';
 import { StudentService } from '../student.service';
 
 @Component({
@@ -24,7 +25,7 @@ export class MycourseComponent implements OnInit {
   ngOnInit(): void {
 
     this.student.myCOurse(this.id).subscribe(res=>{
-      console.log(res)
+      // console.log(res)
       this.sessions = res
     })
 
@@ -46,6 +47,14 @@ export class MycourseComponent implements OnInit {
     })
     this.feedbackData.feedback = ''
 
+  }
+
+  download(fileName:any){
+    // console.log(fileName)
+    this.student.download(fileName).subscribe((data)=>{
+      // console.log(data);
+      saveAs(data, fileName);
+  });
   }
 
 }

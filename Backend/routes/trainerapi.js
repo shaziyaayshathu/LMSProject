@@ -10,7 +10,8 @@ const storage=multer.diskStorage({
     cb(null,"uploads")
   },
   filename:function(req,file,cb){
-    cb(null,`${Date.now()}_${file.originalname}`)
+    console.log("A")
+    cb(null,file.originalname)
   }
 })
 const upload=multer({storage})
@@ -21,7 +22,7 @@ const submissionModel=require('../models/submission')
 
 router.post('/addexam',async (req,res)=>{
     try {
-     console.log(req.body.course)
+     console.log(req.body.course) 
      console.log(req.body.data.qns)
      console.log(req.body.data.title)
      const title=req.body.data.title
@@ -91,13 +92,14 @@ router.post("/uploadPdf",upload.array("files") ,async (req, res) =>  {
     // }
     
     const  title= req.body.title;
-    const course=req.body.course
-    console.log(req.body.course)
-    console.log(req.body.filename)
+    const course=req.body.course 
+    console.log("course id",req.body.course)
+    console.log("file name",req.body.filename)
     let filePath = [];
       //const files=req.files
       if (req.files.length > 0) {
         filePath = req.files.map((file) => {
+          
           return { file: file.originalname };//file: path.join(__dirname + '/uploads/' +file.originalname)
         
         });
@@ -106,11 +108,12 @@ router.post("/uploadPdf",upload.array("files") ,async (req, res) =>  {
         throw new Error("File not found")
       }
       const pdf = new pdfModel({title,filePath,course});
-      console.log(pdf)
+      console.log("pdf ",pdf)
       pdf.save((error, data) => {
         if (error) return res.status(400).json({ error });
         if (data) {
           res.status(201).json(data);
+          console.log("aa",data)
           
         }
       });
@@ -136,7 +139,7 @@ router.get('/uploads',async (req,res)=>{
 })
 router.get('/feedback/:course',async (req,res)=>{
   try {
-   // console.log(req.body)
+   // console.log(req.body) 
    let  course=req.params.course
    console.log(course)
    const feed=await feedbackModel.find({course:course})

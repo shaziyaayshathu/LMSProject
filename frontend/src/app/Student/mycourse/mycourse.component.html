@@ -2,7 +2,7 @@
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col col-lg-10 col-md-10 col-10">
             <div class="header-and-name">
-                <h2 class="header">Course Content</h2><p class="course-name">Course name</p>
+                <h2 class="header">Course Content</h2><p class="course-name">{{feedbackData.courseName}}</p>
             </div>
             <div *ngFor="let session of sessions">
             <mat-accordion>
@@ -14,7 +14,9 @@
                             <h2>{{session.title}}</h2>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <p>Session contents here....</p>
+                    <ul *ngFor="let content of session.filePath">
+                        <li class="items" (click)="download(content.file)"><a  class="contents">{{content.file}}</a></li>
+                    </ul>
                 </mat-expansion-panel>
             </mat-accordion>
             </div>
@@ -81,7 +83,7 @@
                                                     <h2>Assignment</h2>
                                                 </mat-panel-title>
                                             </mat-expansion-panel-header>
-                                            <textarea matInput placeholder=" assignment here..."></textarea>
+                                            <textarea matInput placeholder=" assignment here..." class="feedback-area"></textarea>
                                             <div class="submitbutton">
                                                 <button mat-raised-button color="primary">Submit</button>
                                             </div>

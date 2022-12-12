@@ -23,4 +23,22 @@
     
     overflow:auto
   }
-  
+  mat-expansion-panel-header-title {
+    color: black;
+    margin-bottom: 5px;
+    
+   }
+  mat-panel-title h2{
+    font-weight: lighter;
+    font-size: medium;
+    margin-top: 9px;
+  } 
+
+  mat-accordion{
+    display:grid;
+    margin: auto;
+    /* width: 50%; */
+    /* margin-top: 2rem; */
+    margin-bottom: 20px;
+
+   }

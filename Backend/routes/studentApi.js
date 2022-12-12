@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+const path = require('path')
 
 const courseModel = require('../models/admin/course')
 const userModel = require('../models/admin/user')
@@ -140,14 +141,31 @@ router.post('/uploads',async (req,res)=>{
      console.log(id)
      const list=await pdfModel.find({course : id})
      console.log(list)
-     return res.json(list);
+
+     res.send(list)
      
     } catch (error) {
      
      console.log(error)
     }
      
-  })
+})
+
+router.post('/download', async(req, res)=>{
+    try {
+
+        console.log(req.body)
+        console.log('here');
+        filepath = path.join(__dirname,'../uploads') + '/' + req.body.fileName;
+        console.log("path is : ",filepath);
+        res.sendFile(filepath);
+
+
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 
 module.exports = router
  
