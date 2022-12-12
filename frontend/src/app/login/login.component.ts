@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../loginservice/login.service';
 import { ShareService } from '../share.service';
 
@@ -47,6 +48,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('id',userData[0][0]._id)
 
         if(userData[0][0].role == 'student'){
+          // this.toast.success('Login Successful','success')
           this.router.navigateByUrl('student-home')
         }
         else if(userData[0][0].role == 'trainer'){
@@ -55,7 +57,7 @@ export class LoginComponent implements OnInit {
         else if(userData[0][0].role == 'admin'){
           this.router.navigateByUrl('admin')
         }
-      }
+      } 
 
     })
   }

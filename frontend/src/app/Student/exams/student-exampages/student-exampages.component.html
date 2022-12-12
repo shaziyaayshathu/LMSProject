@@ -5,17 +5,17 @@
                 <form >
                     <ul ><h3>{{title.title}}</h3>
                         <li *ngFor="let qstn of questions; let i = index">
-                            <p class="qstn">{{i+1}}.&nbsp; {{qstn.question}}</p> <ul class="ansr">
-                                <li><input type="radio" name={{i}} id="" [(ngModel)]="ansr[i]" value={{qstn.option1}}>&nbsp; {{qstn.option1}}</li>
-                                <li><input type="radio" name={{i}} id="" [(ngModel)]="ansr[i]" value={{qstn.option2}}>&nbsp; {{qstn.option2}}</li>
-                                <li><input type="radio" name={{i}} id="" [(ngModel)]="ansr[i]" value={{qstn.option3}}>&nbsp; {{qstn.option3}}</li>
-                                <li><input type="radio" name={{i}} id="" [(ngModel)]="ansr[i]" value={{qstn.option4}}>&nbsp; {{qstn.option4}}</li>
+                            <p class="qstn">{{i+1}}.&nbsp; {{qstn.question}}</p> <ul class="ansr" aria-required="true">
+                                <li><input type="radio" name={{i}} [(ngModel)]="dataArray[i]"  value={{qstn.option1}}>&nbsp; {{qstn.option1}}</li>
+                                <li><input type="radio" name={{i}} [(ngModel)]="dataArray[i]"  value={{qstn.option2}}>&nbsp; {{qstn.option2}}</li>
+                                <li><input type="radio" name={{i}} [(ngModel)]="dataArray[i]"  value={{qstn.option3}}>&nbsp; {{qstn.option3}}</li>
+                                <li><input type="radio" name={{i}} [(ngModel)]="dataArray[i]"  value={{qstn.option4}}>&nbsp; {{qstn.option4}}</li>
                                 <!-- {{qstn.answer}}  -->
                             </ul><hr>
                         </li>
                     </ul>
                     <div class="button">
-                        <button type="submit" class="btn btn-primary" (click)="A(dataArray)">Submit</button>
+                        <button type="submit" class="btn btn-primary" (click)="A(dataArray)">Submit</button><p class="hint">{{hint}}</p>
                     </div> 
                 </form> 
             </div>

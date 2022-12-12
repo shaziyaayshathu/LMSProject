@@ -55,6 +55,10 @@ export class StudentService {
     return this.http.post(`${this.apiUrl}/student/download`, fileObj, {
         responseType : 'blob',
     });
-} 
+  } 
+
+  examSubmission(data:any){
+    return this.http.post(`${this.apiUrl}/student/exam-submission`,data)
+  }
 
 }

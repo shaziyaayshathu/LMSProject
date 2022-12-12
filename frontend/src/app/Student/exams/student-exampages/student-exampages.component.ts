@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { empty } from 'rxjs';
 import { StudentService } from '../../student.service';
 
 @Component({
@@ -16,20 +17,20 @@ export class StudentExampagesComponent implements OnInit {
   }
   questions: any
   examContent: any
+  hint:any
+  score:number = 0
 
-  ansr = [{
-                  // dummy array
-  }]
-
-  data: any = {           // for storing qstn , ansr and selected ansr .then push it to an array
-    // question: '',
-    // answer: '',       
-    // selectedAnsr: ''
-  }
 
   dataArray :any   
 
-  constructor(private student: StudentService, private activeId: ActivatedRoute) { }
+  examData:any ={
+    title: '',
+    studName: localStorage.getItem('name'),
+    marks: 0,
+    course: localStorage.getItem('course')
+  }
+
+  constructor(private student: StudentService, private activeId: ActivatedRoute, private router:Router) { }
 
 
 
@@ -44,17 +45,7 @@ export class StudentExampagesComponent implements OnInit {
       this.title.title = this.examContent.title  // display title
       this.questions = this.examContent.qns      // storing questions array
       this.dataArray = new Array(this.questions.length)
-      // for (let i = 0; i < this.questions.length; i++) {
-
-        
-      //   this.data = {
-      //     question: this.questions[i].question,
-      //     answer: this.questions[i].answer,
-      //     selectedAnsr: ''
-      //   }
-      //   this.dataArray.push(this.data)
-      // }
-      // this.data.question = this.questions
+  
       console.log("dataArray", this.dataArray)
 
       // console.log(this.questions)
@@ -63,9 +54,29 @@ export class StudentExampagesComponent implements OnInit {
   }
 
   A(ansr: any) {
-    console.log(ansr)
-    // console.log(ansr[2].answer3)
+    console.log("selected: ",ansr)
+    if(ansr.every((element: null) => element === null)){
+      console.log("empty values")
+      this.hint = "Please attent atleast one question !"
+      return
+    };
+    for(let i =0; i<ansr.length; i++){
+
+      if(ansr[i] === this.questions[i].answer){
+        this.score ++
+      } 
+    }
+    this.examData.marks = this.score
+    this.examData.title = this.title.title
+    console.log(this.examData)
+    alert("Exam submitted successfully")
+    this.student.examSubmission(this.examData).subscribe(res =>{
+      console.log("response from backend ",res)
+    })
+    this.router.navigateByUrl('/student-home/exams')
+
+
   }
-
-
+ 
 }
+ 

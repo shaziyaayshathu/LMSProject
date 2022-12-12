@@ -116,7 +116,18 @@ router.post('/exams/:id', async(req, res)=>{
     }
 })
  
-
+router.post('/exam-submission', async(req, res)=>{
+    console.log(req.body)
+    try {
+        data = req.body
+        let newSubmission = new submissionModel(data)
+        let savedFeedback = await newSubmission.save() 
+        res.send(savedFeedback)
+        
+    } catch (error) {
+        console.log("error from exam submission api", error)
+    }
+}) 
 
   
 

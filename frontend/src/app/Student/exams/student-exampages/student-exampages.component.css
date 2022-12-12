@@ -22,9 +22,17 @@ li{
 }
 .button{
     margin-left: 42%;
-
+    display: inline;
 }
 
 .qstn{
     margin-top: 25px;
+    margin-right: 10px;
+}
+
+.hint{
+    display: inline;
+    margin-left: 10px;
+    color: red;
+    
 }
